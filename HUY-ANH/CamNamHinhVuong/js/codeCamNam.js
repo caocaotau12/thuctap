@@ -3,13 +3,22 @@
 		screen.style.height=window.innerHeight+'px';
 		var box=document.getElementById('box');
 		
-		box.onmousedown=function() {
+		box.onmousedown=function(e) {
+                // grab the mouse position
+			_startX = e.clientX;
+        	_startY = e.clientY;
+        
+                // grab the clicked element's position
+        
+	        _offsetX = ExtractNumber(box.style.left);
+	        _offsetY = ExtractNumber(box.style.top);
+
 			this.onmouseup=null;
-			screen.onmousemove=function(){
+			screen.onmousemove=function(e){
+				box.style.left = (_offsetX + e.clientX - _startX) + 'px';
+    			box.style.top = (_offsetY + e.clientY - _startY) + 'px';
 				
-				
-				box.style.top=event.clientY-20 +'px';
-				box.style.left=event.clientX-20+'px';
+			
 				screen.onmouseup=function(){
 					console.log("nha chuot");
 					screen.onmousemove=null;
@@ -17,5 +26,11 @@
 				}
 			}
 		};
+		function ExtractNumber(value)
+		{
+		    var n = parseInt(value);
+			
+		    return n == null || isNaN(n) ? 0 : n;
+		}
 		// makeMovable(screen,box);
 		
