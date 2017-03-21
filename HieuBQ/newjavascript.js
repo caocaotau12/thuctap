@@ -1,6 +1,6 @@
  var x=0;
            var y=0;
-           var m,n;
+           var m,n;//
            var z;
            var l=0, t=0;
           

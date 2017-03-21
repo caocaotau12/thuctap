@@ -5,13 +5,17 @@
 		
 		box.onmousedown=function() {
 			this.onmouseup=null;
-			this.onmousemove=function(event){
+			screen.onmousemove=function(){
+				
+				
 				box.style.top=event.clientY-20 +'px';
 				box.style.left=event.clientX-20+'px';
-				this.onmouseup=function(){
+				screen.onmouseup=function(){
 					console.log("nha chuot");
-					this.onmousemove=null;
+					screen.onmousemove=null;
 					
 				}
 			}
 		};
+		// makeMovable(screen,box);
+		
