@@ -1,4 +1,6 @@
- var x=0;
+//ghi chu
+
+var x=0;
            var y=0;
            var m,n;
            var z;
