@@ -1,36 +1,45 @@
 		var screen=document.getElementById('big');
-		screen.style.height=window.innerWidth+'px';
+		screen.style.width=window.innerWidth+'px';
 		screen.style.height=window.innerHeight+'px';
 		var box=document.getElementById('box');
-		
-		box.onmousedown=function(e) {
-                // grab the mouse position
-			_startX = e.clientX;
-        	_startY = e.clientY;
-        
-                // grab the clicked element's position
-        
-	        _offsetX = ExtractNumber(box.style.left);
-	        _offsetY = ExtractNumber(box.style.top);
+		var test=new BigBox(box);
+		test.work();
+		function BigBox(object){
+			var left;
+			var top;
+			var getLeft = function() { return object.style.left; };
+  			var getTop = function() {return object.style.top; };
+  			var move=function(a,b){
+  				object.style.left=a+'px';
+  				object.style.top=b+'px';
+  			};
+  			this.work=function(){
+  				console.log("work");
+  				object.onmousedown=function(e){
+  				_startX = e.clientX;
+        		_startY = e.clientY;
+        		_offsetX = ExtractNumber(getLeft());
+	        	_offsetY = ExtractNumber(getTop());
+	        	console.log(ExtractNumber(_offsetX)+":"+ExtractNumber(_offsetY));
+	        		screen.onmousemove=function(e){
+						move(_offsetX + e.clientX -_startX,_offsetY + e.clientY -_startY);
+						screen.onmouseup=function(){
+							screen.onmousemove=null;
+							
+						};
+					};
+  				};
 
-			this.onmouseup=null;
-			screen.onmousemove=function(e){
-				box.style.left = (_offsetX + e.clientX - _startX) + 'px';
-    			box.style.top = (_offsetY + e.clientY - _startY) + 'px';
-				
-			
-				screen.onmouseup=function(){
-					console.log("nha chuot");
-					screen.onmousemove=null;
-					
-				}
-			}
-		};
+
+  			};
+
+  			
+		}
 		function ExtractNumber(value)
 		{
 		    var n = parseInt(value);
 			
 		    return n == null || isNaN(n) ? 0 : n;
 		}
-		// makeMovable(screen,box);
+		
 		
