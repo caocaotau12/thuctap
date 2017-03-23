@@ -1,21 +1,9 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://www.netbeans.org/ns/project/1">
     <type>org.netbeans.modules.php.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
-            <name>THUCTAP-GIT</name>
+            <name>BAI-TAP-THUC-TAP</name>
         </data>
     </configuration>
 </project>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://www.netbeans.org/ns/project/1">
-    <type>org.netbeans.modules.php.project</type>
-    <configuration>
-        <data xmlns="http://www.netbeans.org/ns/php-project/1">
-            <name>LOGIN</name>
-        </data>
-    </configuration>
-</project>
->>>>>>> c546c3e263f8f9ca0c6e6b67c052e396fff3f277
