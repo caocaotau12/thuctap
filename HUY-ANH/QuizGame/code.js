@@ -36,7 +36,9 @@ $(document).ready(function(){
     console.log(size);
     var index=0;
     var score=0;
-    var b=-1;    
+    var b=-1; 
+    var music = document.getElementById("myAudio"); 
+    var music2   =document.getElementById("myAudio2");
         function run(){
             var cauhoi=quiz[index];
             
@@ -64,11 +66,13 @@ $(document).ready(function(){
 
                                 if($(this).text()==object['answer']){
                                     $("#ketqua").html("Đúng rồi!");
+                                    music.play();
                                     object['score']=true;
                                     score++;
                                 }
                                 else{
                                     $("#ketqua").html("Sai rồi!");
+                                   music2.play();
                                 }
                                 if(index<size-1) index++;
                                 else
@@ -94,9 +98,7 @@ $(document).ready(function(){
         }
         run();
              
-            
-            
-        
+   
         
                 
 
