@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //set up quiz data
     var quiz=[
     {
        
@@ -29,27 +30,39 @@ $(document).ready(function(){
         "answer":'k ranh',
         "next":false
     }
-    ]
+    ];
     var ans=['#dapanA','#dapanB','#dapanC','#dapanD'];
     var size=quiz.length;
+    console.log(size);
     var index=0;
-    var cauhoi;
+   
         
         function run(){
-            cauhoi=quiz[index];
-            console.log(cauhoi["answer"]);
+            var cauhoi=quiz[index];
+            
             $("#quizX").text(cauhoi["question"]);
-            var arrQ=cauhoi["listanswer"];
+         
+            loadAnswer(cauhoi);  
+           
+        }
+        function loadAnswer(object){
+            var arrQ=object["listanswer"];
+                document.getElementById("dapan").innerHTML="";
                 for(var j=0;j<ans.length;j++){
+                    //delete result true or false
                     var x=setTimeout(function() {
                         $("#ketqua").html("");
                     },1000);
-                   var t=$(ans[j]);
-                   t.text(arrQ[j]);
-                   t.click(function(){
-                       cauhoi["next"]=true;
-                       var s=$(this).text();
-                                if($(this).text()==cauhoi['answer']){
+                   //get the name and set text for that selector.
+                   
+                   var x= document.createElement("li");
+                   x.id=ans[j];
+                   x.innerHTML=arrQ[j];
+                   document.getElementById("dapan").appendChild(x);
+                   $(x).click(function(){
+                        console.log($(this).text());
+
+                                if($(this).text()==object['answer']){
                                     $("#ketqua").html("Dung roi");
                                 }
                                 else{
@@ -57,10 +70,14 @@ $(document).ready(function(){
                                 }
                                 if(index<size-1) index++;
                                 run();
+
+
+
+
                    });
                }
-              
-           
+            if(index==size-1) return;
+               
         }
         run();
              
