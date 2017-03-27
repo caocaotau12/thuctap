@@ -1,162 +1,160 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <!--- test 1 edit -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-	<style>
-		.btn {
-			width: 200px;
-			height: 50px;
-			color: black;
-		}
-	</style>
-	<script language="javascript">
+    <head>
+        <!--- test 1 edit -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <link rel="stylesheet" href="">
+        <style>
+            .btn {
+                width: 200px;
+                height: 50px;
+                color: black;
+            }
+        </style>
+        <script language="javascript">
 
-		var newTab = null;
+            var newTab = null;
 
-		function myFunction() { 
-		    if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
-		    {
-		        alert('Opera');
-		    }
-		    else if(navigator.userAgent.indexOf("Chrome") != -1 )
-		    {
-		        alert('Chrome');
-		    }
-		    else if(navigator.userAgent.indexOf("Safari") != -1)
-		    {
-		        alert('Safari');
-		    }
-		    else if(navigator.userAgent.indexOf("Firefox") != -1 ) 
-		    {
-		         alert('Firefox');
-		    }
-		    else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
-		    {
-		      alert('IE'); 
-		    }  
-		    else 
-		    {
-		       alert('unknown');
-		    }
-	    }
+            function myFunction() {
+                if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1)
+                {
+                    alert('Opera');
+                } else if (navigator.userAgent.indexOf("Chrome") != -1)
+                {
+                    alert('Chrome');
+                } else if (navigator.userAgent.indexOf("Safari") != -1)
+                {
+                    alert('Safari');
+                } else if (navigator.userAgent.indexOf("Firefox") != -1)
+                {
+                    alert('Firefox');
+                } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) //IF IE > 10
+                {
+                    alert('IE');
+                } else
+                {
+                    alert('unknown');
+                }
+            }
 
-		function Check() {
-			if(navigator.userAgent.indexOf("Firefox") != -1 ) alert("Chương trình khuyên bạn dùng Chrome");
-			
-		}
+            function Check() {
+                if (navigator.userAgent.indexOf("Firefox") != -1)
+                    alert("Chương trình khuyên bạn dùng Chrome");
 
-		function OpenNewTab() {
-			newTab = window.open("","blank","width=300px, height=400px");
-			
-			var sp1 = document.createElement("span");
-			sp1.innerHTML = "Textbox1";
-			var sp3 = document.createElement("span");
-			sp3.innerHTML = "Textbox2";
-			var sp4 = document.createElement("span");
-			sp4.innerHTML = "Textbox3";
-			var ip1 = document.createElement("input");
-			ip1.classList.add("inp");
-			ip1.type = "text";
-			ip1.value = "box1";
-			var ip2 = document.createElement("input");
-			ip2.type = "text";
-			ip2.value = "box2";
-			ip2.classList.add("inp");
-			var ip3 = document.createElement("input");
-			ip3.type = "text";
-			ip3.classList.add("inp");
-			ip3.name = "Textbox1";
-			ip3.value = "box3";
-			var sp2 = document.createElement("span");
-			sp2.innerHTML = "Checkbox";
-			var ipc1 = document.createElement("input");
-			ipc1.type = "checkbox";
-			ipc1.checked = true;
-			var ipc2 = document.createElement("input");
-			ipc2.type = "checkbox";
-			var ipc3 = document.createElement("input");
-			ipc3.type = "checkbox";
-			var spp1 = document.createElement("span");
-			var spp2 = document.createElement("span");
-			var spp3 = document.createElement("span");
-			var br1 = document.createElement("br");
-			var br2 = document.createElement("br");
-			var br3 = document.createElement("br");
-			spp1.innerHTML = "value1";
-			spp2.innerHTML = "value2";
-			spp3.innerHTML = "value3";
+            }
 
-			var eleBody = newTab.document.all[0].children[1];
-			eleBody.appendChild(sp1);
-			eleBody.appendChild(ip1);
-			eleBody.appendChild(br1);
-			//eleBody.innerHTML = "<br />";
-			eleBody.appendChild(sp2);
-			eleBody.appendChild(ipc1);
-			eleBody.appendChild(spp1);
-			eleBody.appendChild(ipc2);
-			eleBody.appendChild(spp2);
-			eleBody.appendChild(ipc3);
-			eleBody.appendChild(spp3);
-			eleBody.appendChild(br2);
-			eleBody.appendChild(sp3);
-			eleBody.appendChild(ip2);
-			eleBody.appendChild(br3);
-			eleBody.appendChild(sp4);
-			eleBody.appendChild(ip3);
+            function OpenNewTab() {
+                newTab = window.open("", "blank", "width=300px, height=400px");
+
+                var sp1 = document.createElement("span");
+                sp1.innerHTML = "Textbox1";
+                var sp3 = document.createElement("span");
+                sp3.innerHTML = "Textbox2";
+                var sp4 = document.createElement("span");
+                sp4.innerHTML = "Textbox3";
+                var ip1 = document.createElement("input");
+                ip1.classList.add("inp");
+                ip1.type = "text";
+                ip1.value = "box1";
+                var ip2 = document.createElement("input");
+                ip2.type = "text";
+                ip2.value = "box2";
+                ip2.classList.add("inp");
+                var ip3 = document.createElement("input");
+                ip3.type = "text";
+                ip3.classList.add("inp");
+                ip3.name = "Textbox1";
+                ip3.value = "box3";
+                var sp2 = document.createElement("span");
+                sp2.innerHTML = "Checkbox";
+                var ipc1 = document.createElement("input");
+                ipc1.type = "checkbox";
+                ipc1.checked = true;
+                var ipc2 = document.createElement("input");
+                ipc2.type = "checkbox";
+                var ipc3 = document.createElement("input");
+                ipc3.type = "checkbox";
+                var spp1 = document.createElement("span");
+                var spp2 = document.createElement("span");
+                var spp3 = document.createElement("span");
+                var br1 = document.createElement("br");
+                var br2 = document.createElement("br");
+                var br3 = document.createElement("br");
+                spp1.innerHTML = "value1";
+                spp2.innerHTML = "value2";
+                spp3.innerHTML = "value3";
+
+                var eleBody = newTab.document.all[0].children[1];
+                eleBody.appendChild(sp1);
+                eleBody.appendChild(ip1);
+                eleBody.appendChild(br1);
+                //eleBody.innerHTML = "<br />";
+                eleBody.appendChild(sp2);
+                eleBody.appendChild(ipc1);
+                eleBody.appendChild(spp1);
+                eleBody.appendChild(ipc2);
+                eleBody.appendChild(spp2);
+                eleBody.appendChild(ipc3);
+                eleBody.appendChild(spp3);
+                eleBody.appendChild(br2);
+                eleBody.appendChild(sp3);
+                eleBody.appendChild(ip2);
+                eleBody.appendChild(br3);
+                eleBody.appendChild(sp4);
+                eleBody.appendChild(ip3);
 
 
 
-			//newTab.document.write("vdd");
-			//newTab.appendChild(ip1);
-		}
+                //newTab.document.write("vdd");
+                //newTab.appendChild(ip1);
+            }
 
-		function DelContents() {
-			var eleBody = newTab.document.all[0].children[1];
-			eleBody.children[1].value = "";
-			eleBody.children[4].checked = false;
-			eleBody.children[6].checked = false;
-			eleBody.children[8].checked = false;
-			eleBody.children[12].value = "";
-			eleBody.children[15].value = "";
-		}
+            function DelContents() {
+                newTab.focus();
+                var eleBody = newTab.document.all[0].children[1];
+                eleBody.children[1].value = "";
+                eleBody.children[4].checked = false;
+                eleBody.children[6].checked = false;
+                eleBody.children[8].checked = false;
+                eleBody.children[12].value = "";
+                eleBody.children[15].value = "";
+            }
 
-		function TickAll() {
-			var eleBody = newTab.document.all[0].children[1];
-			eleBody.children[4].checked = true;
-			eleBody.children[6].checked = true;
-			eleBody.children[8].checked = true;
-		}
+            function TickAll() {
+                newTab.focus();
+                var eleBody = newTab.document.all[0].children[1];
+                eleBody.children[4].checked = true;
+                eleBody.children[6].checked = true;
+                eleBody.children[8].checked = true;
+            }
 
-		function CloseTab() {
-			newTab.close();
-		}
-	</script>.
-</head>
-<body>
-	<button type="button" class="btn" onclick="Check()">Check browser</button>
-	<button type="button" class="btn" onclick="OpenNewTab()">Open new tab</button>
-	<button type="button" class="btn" onclick="DelContents()">Delete all data</button>
-	<button type="button" class="btn" onclick="TickAll()">Tick checkbox</button>
-	<button type="button" class="btn" onclick="CloseTab()">Close tab</button>
-		<!-- <span>Textbox1</span>
-		<input type="text" name="Textbox1" >
-		<br />
-		<span>Textbox2</span>
-		<input type="checkbox">value1
-		<input type="checkbox">value2
-		<input type="checkbox">value3
-		<br />
-		<span>checkbox</span>
-		<input type="text">
-		<br />
-		<span>Textbox3</span>
-		<input type="text"> -->
-	<script language="javascript">
-	</script>
-</body>
+            function CloseTab() {
+                newTab.close();
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" class="btn" onclick="Check()">Check browser</button>
+        <button type="button" class="btn" onclick="OpenNewTab()">Open new tab</button>
+        <button type="button" class="btn" onclick="DelContents()">Delete all data</button>
+        <button type="button" class="btn" onclick="TickAll()">Tick checkbox</button>
+        <button type="button" class="btn" onclick="CloseTab()">Close tab</button>
+        <!-- <span>Textbox1</span>
+        <input type="text" name="Textbox1" >
+        <br />
+        <span>Textbox2</span>
+        <input type="checkbox">value1
+        <input type="checkbox">value2
+        <input type="checkbox">value3
+        <br />
+        <span>checkbox</span>
+        <input type="text">
+        <br />
+        <span>Textbox3</span>
+        <input type="text"> -->
+        <script language="javascript">
+        </script>
+    </body>
 </html>
