@@ -3,39 +3,39 @@ $(document).ready(function(){
     var quiz=[
     {
        
-        "question":"Anh vau di dau ve day?",
-        "listanswer":['Game','Bong da','Co vua','danh nhau'],
+        "question":"Anh vẩu đi đâu về đấy?",
+        "listanswer":['Game','Bóng đá','Cờ vua','đánh nhau'],
         "answer":'Game',
-        "next":false
+        "score":false
     },
     {
        
-        "question":"Anh di dau day",
-        "listanswer":['di choi','di ngu','di ve sinh',"di sinh nhat"],
-        "answer":'di ngu',
-        "next":false
+        "question":"Anh đi đâu đấy",
+        "listanswer":['đi chơi','đi ngủ','đi vệ sinh',"đi sinh nhật"],
+        "answer":'đi ngủ',
+        "score":false
     },
     {
        
         "question":"Anh an com chua",
-        "listanswer":['chua','roi','khong noi','an tu hom qua'],
-        "answer":'khong noi',
-        "next":false
+        "listanswer":['chưa','rồi','không nói','ăn từ hôm qua'],
+        "answer":'không nói',
+        "score":false
     }
     ,
     {
        
-        "question":"Mai di choi khong",
-        "listanswer":['co','khong','tuy tam trang','k ranh'],
-        "answer":'k ranh',
-        "next":false
+        "question":"Mai đi chơi không",
+        "listanswer":['có','không','tùy tâm trạng','không rảnh'],
+        "answer":'không rảnh',
+        "score":false
     }
     ];
     var ans=['#dapanA','#dapanB','#dapanC','#dapanD'];
     var size=quiz.length;
     console.log(size);
     var index=0;
-   
+    var score=0;
         
         function run(){
             var cauhoi=quiz[index];
@@ -63,12 +63,18 @@ $(document).ready(function(){
                         console.log($(this).text());
 
                                 if($(this).text()==object['answer']){
-                                    $("#ketqua").html("Dung roi");
+                                    $("#ketqua").html("Đúng rồi!");
+                                    object['score']=true;
+                                    score++;
                                 }
                                 else{
-                                    $("#ketqua").html("Sai roi");
+                                    $("#ketqua").html("Sai rồi!");
                                 }
                                 if(index<size-1) index++;
+                                else
+                                {
+                                     $('#score').html(score);
+                                }
                                 run();
 
 
@@ -76,7 +82,10 @@ $(document).ready(function(){
 
                    });
                }
-            if(index==size-1) return;
+            // if(index==size-1) {
+            //     $('#score').html(score);
+            //     return;
+            // };
                
         }
         run();

@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Quiz</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="jquery-3.2.0.min.js"></script>
@@ -22,7 +22,10 @@ and open the template in the editor.
             li{
                 display:block ;
             }
-           
+           #score{
+                font-weight: bold;
+                color: green;
+           }
         </style>
     </head>
     <body>
@@ -36,5 +39,6 @@ and open the template in the editor.
            
         </ul>
          <h2><span id="ketqua"></span></h2>
+         <h2>Tổng điểm là:<span id="score"></span></h2>
     </body>
 </html>
