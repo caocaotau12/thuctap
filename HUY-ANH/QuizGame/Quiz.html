@@ -13,32 +13,43 @@ and open the template in the editor.
         <script src="code.js"></script>
         <style>
            
-            h2{
-                 display: block;
+            #chao{
+               
                 height:40px;
-                background-color: red;
-                color: white;
+                
+                color: black;
+                border: 2px solid black;
             }
             li{
                 display:block ;
+                font-weight: bold;
             }
            #score{
                 font-weight: bold;
                 color: green;
            }
+           #diem{
+                 height:40px;
+                
+                color: black;
+                border: 2px solid black;
+           }
+           #ketqua1{
+                  height:40px;
+                
+                color: black;
+                border: 2px solid black;
+           }
         </style>
     </head>
     <body>
         
-        <h2 id="quizX"></h2>
+        <h2 id="chao">Câu hỏi:<span id="quizX"></span></h2>
         <ul id="dapan">
-          <!--   <span>A.<li id="dapanA"></li></span>
-            <span>B.<li id="dapanB"></li></span>
-            <span>C.<li id="dapanC"></li></span>
-            <span>D.<li id="dapanD"></li></span> -->
+            
            
         </ul>
-         <h2><span id="ketqua"></span></h2>
-         <h2>Tổng điểm là:<span id="score"></span></h2>
+         <h2 id="ketqua1">Kết quả:<span id="ketqua"></span></h2>
+         <h2 id="diem">Tổng điểm là:<span id="score"></span></h2>
     </body>
 </html>

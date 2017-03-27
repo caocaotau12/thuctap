@@ -36,7 +36,7 @@ $(document).ready(function(){
     console.log(size);
     var index=0;
     var score=0;
-        
+    var b=-1;    
         function run(){
             var cauhoi=quiz[index];
             
@@ -60,7 +60,7 @@ $(document).ready(function(){
                    x.innerHTML=arrQ[j];
                    document.getElementById("dapan").appendChild(x);
                    $(x).click(function(){
-                        console.log($(this).text());
+                        // console.log($(this).text());
 
                                 if($(this).text()==object['answer']){
                                     $("#ketqua").html("Đúng rồi!");
@@ -73,7 +73,11 @@ $(document).ready(function(){
                                 if(index<size-1) index++;
                                 else
                                 {
-                                     $('#score').html(score);
+                                    if(b==-1){
+                                        b=score;
+                                    }
+                                     $('#score').html(b);
+                                     
                                 }
                                 run();
 
