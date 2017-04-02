@@ -38,15 +38,15 @@
             }
 
             for($i=1;$i<count($arr_All[0]);$i++){
-                $idQ=split('\|',$arr_All[0][$i])[0];
-                $queS=split('\|',$arr_All[0][$i])[1];
+                $idQ=explode('|',$arr_All[0][$i])[0];
+                $queS=explode('|',$arr_All[0][$i])[1];
                 echo "<h1>$queS</h1>"."<br>";
                 for($j=1;$j<count($arr_All[1]);$j++){
-                    $idO=split('\|',$arr_All[1][$j])[0];
+                    $idO=explode('|',$arr_All[1][$j])[0];
                     if($idQ==$idO){
                         
-                        $val_O=split('\|',$arr_All[1][$j])[3];
-                        $op_D=split('\|',$arr_All[1][$j])[1].'.'.split('\|',$arr_All[1][$j])[2];
+                        $val_O=explode('|',$arr_All[1][$j])[3];
+                        $op_D=explode('|',$arr_All[1][$j])[1].'.'.explode('|',$arr_All[1][$j])[2];
                         echo "<input type='radio' value=".$val_O." name=".$idO.">".$op_D."<br>";
                     }
                 }
