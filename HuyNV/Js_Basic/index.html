@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="screen">
+        #dropdown {
+          width: 200px
+        }
+        #dropdown li{
+          list-style:none;
+          line-height: 30px;
+          background: blue;
+          margin: 2px;
+        }
+         
+        #dropdown li a{
+          margin-left: 10px;
+          color: #FFF;
+          text-decoration: none;
+        }
+         
+        #dropdown ul{
+          display:none;
+          padding: 0px;
+          background: pink
+        }
+         
+        #dropdown ul li{
+          background-color: pink
+        }
+    </style>
+</head>
+<body>
+    
+
+    
+        <!-- // function Get_Data() {
+        //     var html = document.getElementById("content").innerHTML;
+        //     alert("Đây là nội dung trong div: " + html);
+        // }
+
+        // function Set_Data() {
+        //     document.getElementById("content").innerHTML = "Hello world"; 
+        // }
+
+        // function Change() {
+        //     var object = document.getElementById("change");
+
+        //     var type = object.type;
+
+        //     if (type == "button") object.type = "text";
+        //     else object.type = "button";
+        // }
+
+        // function Change_Size() {
+        //     var obj = document.getElementById("content");
+
+        //     obj.style.fontSize = '20px';
+        // }
+        // function Change_Height() {
+        //     var obj = document.getElementById("content");
+
+        //     obj.style.height = '100px';
+        // }
+
+        // function Change_Back() {
+        //     var obj = document.getElementById("content");
+
+        //     obj.style.background = 'red';
+        // }
+
+        // function Change_Color() {
+        //     var obj = document.getElementById("content");
+
+        //     obj.style.color = 'yellow';
+        // }
+
+        // function Check() {
+        //     var use = document.getElementById("username");
+        //     var pass = document.getElementById("password");
+        //     var noti = document.getElementById("notify");
+
+        //     if ((use.value == "") || (pass.value == "")) {
+        //         noti.innerHTML = "Đăng nhập thất bại";
+        //         noti.style.color = 'red';
+        //     }
+        //     else {
+        //         noti.innerHTML = "Đăng nhập thành công";
+        //         noti.style.color = 'green';
+        //     }
+        // } -->
+        <!-- <script language="javascript">
+            function test(obj) {
+                alert(obj.type);
+            }
+        </script> -->
+
+        <!-- <ul id="dropdown">
+            <li><a href="">Trang chủ</a></li>
+            <li>
+                <a href="">Về tôi</a>
+                <ul>
+                    <li><a href="">Thông tin</a></li>
+                    <li><a href="">Nghề nghiệp</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Chia sẻ</a>
+                <ul>
+                    <li><a href="">Lập trình</a></li>
+                    <li><a href="">Học tập</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Tài liệu</a>
+                <ul>
+                    <li><a href="">HTML/CSS</a></li>
+                    <li><a href="">Javascrip</a></li>
+                    <li><a href="">PHP/ASP.NET</a></li>
+                </ul>
+            </li>
+        </ul> -->
+
+        <div id="top">
+            Xin chào các bạn!
+        </div>
+        
+        <script language="javascript">
+
+            var width = window.innerWidth;
+             
+            var height = window.innerHeight;
+
+            document.write("Chiều rộng: " + width);
+            document.write("Chiều cao: " + height);
+
+            // var but = document.getElementById("click");
+
+            // but.addEventListener("click", function() {
+            //     var newTag = document.createElement("h1");
+
+            //     text = document.createTextNode("Mình là Huy đẹp zai!");
+
+            //     newTag.appendChild(text);
+
+            //     document.getElementById("top").appendChild(newTag);
+            // })
+            
+        </script>
+
+        <!-- <div id="test"></div>
+        <input type="button" name="Stop" id="stop_random"> -->
+
+        <!-- <script language="javascript">
+            var result = document.getElementById("test");
+            var but = document.getElementById("stop_random");
+            var html = document.getElementsByTagName("html")[0];
+
+            function random_start() {
+                var random_string = Math.random();
+
+                result.innerHTML = random_string;
+            }
+
+            html.addEventListener("mousemove", random_start);
+
+            but.addEventListener("click", function() {
+                html.removeEventListener("mousemove", random_start);
+            });
+        </script> -->
+
+        <!-- <script language="javascript">
+            // var menu = document.querySelectorAll('#dropdown > li');
+
+            // for (var i = 0; i < menu.length; i++) {
+            //     menu[i].addEventListener('click', function() {
+            //         var menuList = document.querySelectorAll('#dropdown > li > ul');
+
+            //         for (var j = 0; j < menuList.length; j++) {
+            //             menuList[j].style.display = "none";
+            //         }
+
+            //         this.children[1].style.display = "block";
+            //     });
+            // }
+            // var sor = document.getElementById("source");
+            // var des = document.getElementById("des");
+
+
+            // sor.addEventListener('keyup', function() {
+            //     des.value = sor.value;
+            // });
+
+            // sor.addEventListener('keyup', function() {
+            //     if (des.value.length > 5)
+            //         alert("Đã hơn 5 kí tự");
+            // });
+            // var myBut = document.getElementById("test");
+
+            // myBut.addEventListener('click', function() {
+            //     alert(myBut.type);
+            // });
+
+
+        </script> -->
+
+    <!-- <script language="javascript">
+        var list = document.getElementsByClassName("link");
+
+        for (var i = 0; i < list.length; i++) {
+            list[i].onclick = function() {
+                alert("Thích ngắm mông!!!!!!");
+                return false;
+            };
+        }
+    </script> -->
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		#container {
+			margin: auto;
+			height: 1000px;
+			width: 1000px;
+			background: greenyellow;
+		}
+
+		#text-add {
+			float: left;
+			width: 69%;
+			height: 54px;		
+			font-size: 20px;	
+		}
+
+		#click-add {
+			float: left;
+			width: 30%;
+			height: 60px;
+			color: black;
+		}
+
+		#result {
+			clear: both;
+		}
+
+		.frm {
+			width: 100%;
+			background: grey;
+			height: 50px;
+		}
+
+		.tick {
+			width: 50px;
+			height: 50px;
+			float: left;
+			background: grey;
+			color: white;
+			line-height: 50px;
+			margin: auto;
+			text-align: center;
+		}
+
+		.content {
+			float: left;
+			width: 900px;
+			height: 50px;
+			background: grey;
+			color: white;
+			line-height: 50px;
+		}
+
+		.del {
+			width: 50px;
+			height: 50px;
+			float: left;
+			background: grey;
+			color: white;
+			line-height: 50px;
+			text-align: center;
+		}
+
+		.hid {
+			display: none !important;
+		}
+
+
+	</style>
+	<script src="https://use.fontawesome.com/d826c84253.js"></script>
+</head>
+<body>
+	<script language="javascript">
+		function countCookies() {
+			var cookies = document.cookie;
+			var c = 0;
+
+
+
+			if (cookies.length > 0) {
+				var arrCookies = cookies.split(";");
+				for (var i = 0; i < arrCookies.length; i++) {
+					temp = arrCookies[i].substring(0,2);
+
+					if (temp == "cv") c++;
+				}
+			}
+
+			return c;
+		}
+
+		function setCookie(cvalue, exdays) {
+			var count = parseInt(getCookie("count")) + 1;
+
+			var cname = "cv" + count.toString();
+
+		    var d = new Date();
+		    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		    var expires = "expires="+d.toUTCString();
+		    document.cookie = cname + "=" + cvalue + ";" + expires;
+
+		    var newd = new Date();
+		    newd.setTime(newd.getTime() + (100*24*60*60*1000));
+		    var newexpires = "expires="+newd.toUTCString();
+
+		    document.cookie = "count=" + count.toString() + ";" + newexpires;
+
+		}
+
+		function delCookie(content) {
+			var cookies = document.cookie;
+			var d = new Date();
+		    d.setTime(d.getTime() + ((-1)*24*60*60*1000));
+		    var expires = "expires="+d.toUTCString();
+
+			if (cookies.length > 0) {
+				var arrCookies = cookies.split(";");
+				for (var i = 0; i < arrCookies.length; i++) {
+					var listContent = arrCookies[i].split("=")[1];
+					if (content == listContent) {
+						var cname = arrCookies[i].split("=")[0];
+						document.cookie = cname + "=" + "" + ";" + expires;
+						break;
+					}
+				}
+			}
+		}
+		 
+		// Hàm lấy Cookie
+		function getCookie(cname) {
+		    var name = cname + "=";
+		    var ca = document.cookie.split(';');
+		    for(var i=0; i<ca.length; i++) {
+		        var c = ca[i];
+		        while (c.charAt(0)==' ') c = c.substring(1);
+		        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+		    }
+		    return "";
+		}
+
+		function getContentCookie() {
+			var cookies = document.cookie;
+			var arrContent = new Array();
+
+			if (cookies.length > 0) {
+				var arrCookies = cookies.split(";");
+				for (var i = 0; i < arrCookies.length; i++) {
+					if (i != 0) temp = arrCookies[i].substring(1,3);
+					else temp = arrCookies[i].substring(0,2);
+
+					if (temp == "cv") {
+						var ccon = arrCookies[i].split("=")[1];
+						arrContent.push(ccon);
+					}
+				}
+			}
+
+			return arrContent;
+		}
+
+		function CheckX(content) {
+			var cookies = document.cookie;
+			var ret = false;
+
+			if (cookies.length > 0) {
+				var arrCookies = cookies.split("; ");
+				for (var i = 0; i < arrCookies.length; i++) {
+					temp = arrCookies[i].split("=")[1];
+
+					if (temp == content) {
+						cname = "a" + arrCookies[i].split("=")[0] + "x";
+						break;
+					}
+				}
+
+				for (var i = 0; i < arrCookies.length; i++) {
+					temp = arrCookies[i].split("=")[0];
+
+					if (temp == cname) {
+						ret = true;
+						break;
+					}
+				}
+
+				return ret;
+			}
+		}
+
+		function Remove(content) {
+			if (cookies.length > 0) {
+				var arrCookies = cookies.split("; ");
+				for (var i = 0; i < arrCookies.length; i++) {
+					temp = arrCookies[i].split("=")[1];
+
+					if (temp == content) {
+						cname = "a" + arrCookies[i].split("=")[0] + "x";
+						break;
+					}
+				}
+
+				for (var i = 0; i < arrCookies.length; i++) {
+					temp = arrCookies[i].split("=")[0];
+
+					if (temp == cname) {
+						ret = true;
+						break;
+					}
+				}
+
+				return ret;
+			}
+		}
+
+		function AddXd(content) {
+			var cookies = document.cookie;
+
+			if (cookies.length > 0) {
+				var arrCookies = cookies.split("; ");
+				for (var i = 0; i < arrCookies.length; i++) {
+					temp = arrCookies[i].split("=")[1];
+
+					if (temp == content) {
+						cname = "a" + arrCookies[i].split("=")[0] + "x";
+						break;
+					}
+				}
+			}
+
+			var d = new Date();
+		    d.setTime(d.getTime() + (20*24*60*60*1000));
+		    var expires = "expires="+d.toUTCString();
+
+		    document.cookie = cname + "=" + "x;" + expires;
+		}
+
+		function SearchNameByContent(content) {
+			var cookies = document.cookie;
+			var ret = null;
+
+			if (cookies.length > 0) {
+				var arrCookies = cookies.split("; ");
+				for (var i = 0; i < arrCookies.length; i++) {
+					temp = arrCookies[i].split("=")[1];
+
+					if (temp == content) {
+						ret = arrCookies[i].split("=")[0];
+						break;
+					}
+				}
+
+			}
+
+			return ret;
+		}
+
+		function DelXd(content) {
+
+		}
+
+		function leader() {
+			console.log(SearchNameByContent("Đi chơi"));
+
+			var arr = getContentCookie();
+			// var cookies = document.cookie;
+
+			// console.log(cookies);
+			// var arr = cookies.split("; ");
+
+			// for (var i = 0; i < arr.length; i++) {
+			// 	console.log(arr[i]);
+			// }
+			//var newFrm=document.createElement("form");
+			for (var i = 0; i < arr.length; i++) {
+
+				if (CheckX(arr[i])) {
+					var newFrm = CreateForm(arr[i], 1);
+				}
+				else
+				{
+					var newFrm = CreateForm(arr[i], 0);
+				}
+
+				newFrm.addEventListener("click", function() {
+					// var check = 0;
+					// for (var i = 0; i < this.children[0].children[0].classList.toString().split(" ").length; i++) {
+					// 	if (this.children[0].children[0].classList.toString().split(" ")[i] == "hid") {
+					// 		check = 1;
+					// 		break;
+					// 	}
+					// }
+
+					// console.log(this.children[0].children[0].classList.toString().split(" "));
+
+					// if (check == 1) this.children[0].children[0].classList.remove("hid");
+					// else this.children[0].children[0].style.display = "none !important";
+
+					// console.log(check);
+					// console.log(this.children[0].children[0].classList.toString().split(" "));
+					//console.log(this.children[0].children[0].classList.indexOf("hid"));
+					this.children[0].children[0].classList.remove("hid");
+					AddXd(this.children[1].innerHTML);
+				});
+
+				newFrm.addEventListener("mousemove", function() {
+				this.children[0].style.background = "pink";
+				this.children[1].style.background = "pink";
+				this.children[2].style.background = "pink";
+				});
+
+				newFrm.addEventListener("mouseout", function() {
+				this.children[0].style.background = "grey";
+				this.children[1].style.background = "grey";
+				this.children[2].style.background = "grey";
+				});
+
+				var test = document.getElementById("result");
+				test.appendChild(newFrm);
+			}
+		}
+
+		function CreateForm(contents, num) {
+			var frm = document.createElement("form");
+			frm.classList.add("frm");
+
+			var iconF = document.createElement("i");
+			iconF.classList.add("fa");
+			iconF.classList.add("fa-check");
+			if (num == 0) iconF.classList.add("hid");
+			iconF.setAttribute("aria-hidden",true);
+			var divTick = document.createElement("div");
+			divTick.classList.add("tick");
+			divTick.appendChild(iconF);
+			var divContent = document.createElement("div");
+			divContent.classList.add("content");
+			divContent.innerHTML = contents;
+			var divDel = document.createElement("div");
+			divDel.classList.add("del");
+			divDel.addEventListener("click", function() {
+				this.parentElement.style.display = "none";
+				delCookie(this.parentElement.children[1].innerHTML);
+			});
+			
+			var iconS = document.createElement("i");
+			iconS.classList.add("fa");
+			iconS.classList.add("fa-times");
+			iconS.setAttribute("aria-hidden",true);
+
+			divDel.appendChild(iconS);
+
+			frm.appendChild(divTick);
+			frm.appendChild(divContent);
+			frm.appendChild(divDel);
+
+			return frm;
+		}
+	</script>
+	
+	<div id="container">
+		<input type="text" name="" placeholder="Công việc..." id="text-add">
+		<button type="button" id="click-add">Add</button>
+		<div id="result"></div>
+	</div>
+
+	<script>
+
+		leader();
+
+
+		var but = document.getElementById("click-add");
+		but.addEventListener("click", function() {
+			
+			var inputText = document.getElementById("text-add");
+
+			if (inputText.value != "") {
+				var newFrm = CreateForm(inputText.value, 0);
+
+				newFrm.addEventListener("click", function() {
+					this.children[0].children[0].classList.remove("hid");
+					AddXd(this.children[1].innerHTML);
+				});
+
+
+
+				setCookie(inputText.value,20);
+
+				newFrm.addEventListener("mousemove", function() {
+				this.children[0].style.background = "pink";
+				this.children[1].style.background = "pink";
+				this.children[2].style.background = "pink";
+				});
+
+				newFrm.addEventListener("mouseout", function() {
+				this.children[0].style.background = "grey";
+				this.children[1].style.background = "grey";
+				this.children[2].style.background = "grey";
+				});
+
+				inputText.value = "";
+
+				var test = document.getElementById("result");
+				test.appendChild(newFrm);
+			}
+			else {
+				alert("Hãy nhập nội dung!")
+			}
+		});
+
+		var tickReg = document.getElementsByClassName("frm");
+		for (var i = 0; i < tickReg.length; i++) {
+			tickReg[i].addEventListener("click", function() {
+				this.children[0].children[0].classList.remove("hid");
+			});
+
+			tickReg[i].addEventListener("mousemove", function() {
+				this.children[0].style.background = "pink";
+				this.children[1].style.background = "pink";
+				this.children[2].style.background = "pink";
+			});
+
+			tickReg[i].addEventListener("mouseout", function() {
+				this.children[0].style.background = "grey";
+				this.children[1].style.background = "grey";
+				this.children[2].style.background = "grey";
+			});
+		}
+
+		var delReg = document.getElementsByClassName("del");
+		for (var i = 0; i < delReg.length; i++) {
+			delReg[i].addEventListener("click", function() {
+				this.parentElement.style.display = "none";
+			});
+		}
+	</script>
+</body>
+</html>

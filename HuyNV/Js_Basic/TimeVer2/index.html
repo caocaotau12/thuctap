@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		#container {
+			width: 500px;
+			margin: auto;
+			background: green;
+			color: white;
+		}
+
+		#container h1 {
+			text-align: center;
+			padding-top: 15px;
+		}
+
+		.frm {
+			width: 99%;
+			height: 50px;
+			font-size: 20px;
+			text-align: center;
+			padding: 0;
+		}
+
+		#start {
+			color: black;
+			width: 70%;
+			height: 50px;
+			margin-left: 15%;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h1>ĐỒNG HỒ BẤM NGƯỢC</h1>
+		<input type="text" name="" id="hours" value="0" class="frm" placeholder="Hour">
+		<input type="text" name="" id="minutes" value="0" class="frm" placeholder="Minute">
+		<input type="text" name="" id="seconds" value="0" class="frm" placeholder="Second">
+		<input type="button" name="" value="Start" id="start" onclick="Do()">
+	</div>
+
+	<script language="javascript">
+
+		var hr = document.getElementById("hours");
+		var mn = document.getElementById("minutes");
+		var sd = document.getElementById("seconds");
+
+		
+
+		
+
+		function Check() {
+			if (Number.isNaN(h) || Number.isNaN(m) || Number.isNaN(s)) {
+				return false;
+			}
+			else {
+				if ((h < 0) || (m < 0) || (s < 0)) return false;
+				else return true;
+			}
+		}
+
+		function Do() {
+			var h = parseInt(hr.value);
+			var m = parseInt(mn.value);
+			var s = parseInt(sd.value);
+
+			var check = 0;
+			
+			if (s == 0) {
+				if (m == 0) {
+					if (h == 0) {
+						alert("Hết giờ");
+						return "";
+					}
+					else {
+						s = 60;
+						m = 59;
+						mn.value = m;
+						h--;
+						hr.value = h;
+					}
+				}
+				else {
+					s = 60;
+					m--;
+					mn.value = m;
+				}
+			}
+			var timeUp = setTimeout(function(){
+				s=s-1;
+				sd.value=s;
+				mn.value=m;
+				hr.value=h;
+				Do();
+			},1000);
+
+		}
+
+	
+	</script>
+</body>
+</html>

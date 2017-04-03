@@ -1,0 +1,519 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: FranciscoBoldG;
+    src: url('fonts/SanFranciscoText-BoldG1.otf');
+}
+
+@font-face {
+    font-family: FranciscoBold;
+    src: url('fonts/SanFranciscoText-Bold.otf');
+}
+
+@font-face {
+    font-family: FranciscoRegular;
+    src: url('fonts/SanFranciscoText-Regular.otf');
+}
+
+@font-face {
+    font-family: FranciscoRegularGf;
+    src: url('fonts/SanFranciscoText-RegularG1.otf');
+}
+
+@font-face {
+    font-family: FranciscoRegularGs;
+    src: url('fonts/SanFranciscoText-RegularG2.otf');
+}
+
+@font-face {
+    font-family: CaslonSemibold;
+    src: url('fonts/ACaslonPro-Semibold.otf');
+}
+
+@font-face {
+    font-family: AcuminRegular;
+    src: url('fonts/Acumin-RPro.otf');
+}
+
+@font-face {
+    font-family: FranciscoMedium;
+    src: url('fonts/SanFranciscoText-Medium.otf');
+}
+
+@font-face {
+    font-family: HelveticaMedium;
+    src: url('fonts/helveticaneuemedium.ttf');
+}
+
+@font-face {
+    font-family: HelveticaLight;
+    src: url('fonts/helveticaneuelight.ttf');
+}
+
+@font-face {
+    font-family: Sniglet;
+    src: url('fonts/Sniglet-Regular.otf');
+}
+
+.acumin {
+    font-family: AcuminRegular;
+}
+
+.helveLight {
+    font-family: HelveticaLight;
+}
+
+.franBoldGf {
+    font-family: FranciscoBoldG;
+}
+
+.franRegularGs {
+    font-family: FranciscoRegularGs;
+}
+
+.franMedium {
+    font-family: FranciscoMedium;
+}
+
+.navbar {
+    background: #00a685 !important;
+    margin-bottom: 0 !important;
+}
+
+.navbar-brand, .navbar-nav li a {
+    height: 90px;
+    font-size: 14px;
+    color: white !important;
+    line-height: 80px !important;
+}
+
+.navbar-header {
+    margin-left: 4% !important;
+}
+
+.navbar-nav {
+    margin-right: 4% !important;
+}
+
+#header {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 44%;
+    max-height: 680px;
+}
+
+#info {
+    margin-top: 10%;
+}
+
+#title-text {
+    font-family: CaslonSemibold;
+    font-size: 61px;
+    color: black;
+}
+
+#text {
+    font-size: 21px;
+    color: #7b7a7b;
+    margin-top: 17%;
+}
+
+#but-con {
+    margin-top: 5%;
+}
+
+#goto {
+    width: 100%;
+    height: 50px;
+    background: #00a685;
+    color: white;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+}
+
+#video {
+    margin-top: 10%;
+    height: 300px;
+    background: rgba(172,172,172,0.7);
+    border: 1px solid #00a685;
+    border-radius: 20px;
+}
+
+#play {
+    width: 127px;
+    height: 127px;
+    margin: auto;
+    margin-top: 13%;
+}
+
+#click {
+    font-family: FranciscoRegular;
+    font-size: 21px;
+    color: white;
+}
+
+.myriad {
+    font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+.tittle-green {
+    font-size: 30px;
+    color: #00a685;
+    font-weight: bold;
+}
+
+.pd {
+    color: #8b8b8b;
+    font-size: 13px;
+    margin-left: 1%;
+    margin-bottom: 0;
+}
+
+#rgt {
+    font-size: 21.24px;
+    color: white;
+    font-weight: bold;
+    width: 120px;
+    height: 35px;
+    background: #00a685;
+}
+
+.pic {
+    width: 100%;
+}
+
+#lecture-info {
+    margin-top: 5%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#avatar {
+    margin: 5% 0 0 15%;
+    
+}
+
+#contain-avatar {
+    padding-bottom: 2%;
+}
+
+#info-lecturer {
+    font-size: 46px;
+    font-family: FranciscoBold;
+    color: white;
+    margin-top: 15%;
+}
+
+#gv {
+    font-size: 28px;
+    color: white;
+    font-family: FranciscoRegularGf;
+}
+
+.note {
+    display: none;
+}
+
+.list-img {
+    list-style: url(img/list.png);
+    font-size: 19.5px;
+    color: white;
+}
+
+#hid-1 {
+    margin-top: 5%;
+}
+
+#review {
+    margin-top: 2%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 5%
+}
+
+#tit-review {
+    text-transform: uppercase;
+    font-size: 56px;
+    color: white;
+    margin-bottom: 0;
+    margin-top: 2%;
+}
+
+#text-review {
+    font-size: 19px;
+    color: white;
+    font-family: CaslonSemibold;
+}
+
+.img-sm {
+    width: 100%;
+}
+
+.format-text {
+    font-family: CaslonSemibold;
+    font-size: 19px;
+    color: white;
+}
+
+.format-name {
+    font-family: FranciscoBold;
+    font-size: 15px;
+    color: white;
+} 
+
+.img-format {
+    margin: auto;
+}
+
+.block {
+    margin-top: 1%;
+}
+
+#rgt-tittle {
+    font-family: HelveticaMedium;
+    font-size: 47.45px;
+    color: black;
+    margin-top: 4%;
+}
+
+#sale {
+    font-size: 37.46px;
+    color: #6a6a6a;
+}
+
+#percent {
+    font-size: 44.54px;
+    color: red;
+}
+
+#contain-price {
+    width: 80%;
+    height: 90px;
+    margin: auto;
+} 
+
+#div-2 {
+    width: 60%;
+    height: 100%;
+    border: none;
+    color: white;
+    background: #38bb6b;
+    border-radius: 0 25% 25% 0;
+    font-size: 40.49px;
+    line-height: 90px;
+}
+
+#div-1 {
+    width: 40%;
+    height: 100%;
+    border: 2px solid #38bb6b;
+    color: #38bb6b;
+    background: white;
+    border-radius: 25% 0 0 25%;
+    font-size: 40.49px;
+    line-height: 90px;
+}
+
+.apply {
+    font-family: HelveticaMedium;
+    color: #6a6a6a;
+    font-size: 31.38px;
+}
+
+#up {
+    font-size: 35.42px;
+    color: #6a6a6a;
+}
+
+.frame {
+    width: 100%;
+    background: #38bb6b;
+    border-radius: 10%;
+}
+
+.number {
+    font-family: Sniglet;
+    font-size: 78.96px;
+    color: white;
+}
+
+.text {
+    font-family: Sniglet;
+    font-size: 24.3px;
+    color: white;
+    margin: 0;
+    margin-top: -35%;
+}
+
+.cont {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+.input-first {
+    width: 100%;
+    height: 50px;
+    color: #acaeaf;
+    font-size: 16px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #38bb6b;
+}
+
+.seri-input {
+    width: 100%;
+    height: 70px;
+    color: #acaeaf;
+    font-size: 16px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #38bb6b;
+    margin-top: 1%;
+}
+
+#question {
+    font-size: 16.2px;
+}
+
+#rgt-now {
+    width: 100%;
+    height: 50px;
+    font-size: 28.34px;
+    background: #38bb6b;
+    color: white;
+}
+
+#note {
+    background: #ffe0b2;
+    margin-top: 3%;
+}
+
+#note-text {
+    font-size: 24.3px;
+    font-weight: 500;
+}
+
+#para-1 {
+    font-size: 16px;
+}
+
+#para-2 {
+    font-size: 18.2px;
+    font-weight: 500;
+}
+
+#footer {
+    background: #2a2c2e;
+    margin-top: 5%;
+}
+
+.format-txt {
+    font-size: 17.97px;
+    color: #eaebeb;
+}
+
+#contain-if {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+hr {
+    border-top: 3px solid #38bb6b !important;
+    margin-top: 0 !important;
+    margin-bottom: 5px !important;
+}
+
+@media (max-width: 768px) {
+    .navbar-header {
+        height: 90px;
+    }
+
+    .not-important {
+        display: none;
+    }
+
+    #contain-price {
+        width: 90%;
+    }
+
+    .format-region {
+        margin-left: 8.33333%;
+    }
+
+    .navbar-brand, .navbar-nav li a {
+        height: 50px;
+        line-height: 30px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    #info-lecturer {
+        margin-top: 0;
+    }
+
+    .region {
+        margin-left: 8.33333%;
+        margin-bottom: 5%;
+    }
+
+    #avatar {
+        margin: auto;
+        margin-top: 5%;
+    }
+
+    #contain-infom, #time {
+        margin-left: 8.33333%;
+    }
+
+    .input-first {
+        margin-top: 4%;
+    }
+
+    #rgt-info {
+        margin-left: 8.33333%;
+    }
+
+    #rgt {
+        margin-top: 5%;
+    }
+
+    .pd {
+        font-size: 16px;
+    }
+
+    #rgt-now {
+    }
+
+    .no-pic {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .hid {
+        /* display: none; */
+    }
+
+    .text {
+        margin-top: -25%;
+    }
+
+    .note {
+        display: block;
+    }
+
+    #note-text {
+        margin-top: 30%;
+    }
+
+    #img-icon {
+        margin-top: 40%;
+    }
+}

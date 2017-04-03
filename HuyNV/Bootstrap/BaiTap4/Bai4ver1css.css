@@ -1,0 +1,57 @@
+@font-face {
+    font-family: Helvetica;
+    src: url('fonts/helveticaneuelight.ttf')
+}
+
+#container {
+	width: 100%;
+	height: 2500px;
+	max-width: 1024px;
+	background: grey;
+	margin: auto;
+	color: black;
+	font-size: 16px;
+}
+
+#container h2{
+	padding-top: 1em;
+}
+
+#container p{
+	padding-top: 0.5em;
+}
+
+.region {
+	float: left;
+	width: 49%;
+	height: 550px;
+}
+
+ul {
+	padding: 0 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+.marg {
+	margin-left: 2%;
+}
+
+.image {
+	width: 100%;
+	height: 74%;
+	background-repeat: no-repeat;
+}
+
+.blue {
+	font-size: 20px;
+	color: blue;
+}
+
+@media screen and (max-width: 600px) {
+	.region {
+		width: 100%;
+	}
+}

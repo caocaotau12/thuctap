@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ai Là Triệu Phú</title>
+	<link rel="stylesheet" href="">
+	<script language="javascript" src="js/jquery.min.js"></script>
+	<script language="javascript" src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style>
+		.container {
+			background: black;
+			color: white;
+			font-size: 25px;
+		}
+		.ans {
+			height: 50px;
+			border-radius: 20px;
+			border: 2px solid white;
+		}
+
+		.ans:hover {
+			background: blue;
+			cursor: pointer;
+		}
+
+		#question-region {
+			
+		}
+	</style>
+</head>
+<body>
+	<script language="javascript">
+		function sleep(milliseconds) {
+		  	var start = new Date().getTime();
+		  	for (var i = 0; i < 1e7; i++) {
+		    	if ((new Date().getTime() - start) > milliseconds){
+		      		break;
+		    	}
+		  }
+		}
+	</script>
+	<audio id="tr" src="true.mp3" type="audio/mpeg" style="display: none"></audio>
+	<audio id="fa" src="false.mp3" type="audio/mpeg" style="display: none"></audio>
+	<div class="container">
+		<div id="question-region" class="text-center"></div>
+		<div id="answer-region">
+			<div class="row" style="margin-top: 20px;">
+				<div class="col-xs-5 col-xs-offset-1 ans" id="ans-a"></div>
+				<div class="col-xs-5 col-xs-offset-1 ans" id="ans-b"></div>
+			</div>
+			<div class="row" style="margin-top: 20px; margin-bottom: 10px;">
+				<div class="col-xs-5 col-xs-offset-1 ans" id="ans-c"></div>
+				<div class="col-xs-5 col-xs-offset-1 ans" id="ans-d"></div>
+			</div>
+		</div>
+	</div>
+
+	<script language="javascript">
+		var q1 = new Object();
+		q1.que = "Tao thích nuôi gì nhất?";
+		q1.ansA = "A. Chó";
+		q1.ansB = "B. Mèo";
+		q1.ansC = "C. Gái";
+		q1.ansD = "D. Lô";
+		q1.da = "A";
+
+		var q2 = new Object();
+		q2.que = "Gặp gái nhìn gì đầu tiên?";
+		q2.ansA = "A. Ngực";
+		q2.ansB = "B. Mặt";
+		q2.ansC = "C. Chân";
+		q2.ansD = "D. Mông";
+		q2.da = "D";
+
+		var q3 = new Object();
+		q3.que = "Năm nay bé 5 tuổi, tuổi của mẹ gấp 4 lần tuổi bé, hỏi bố bé đang ở đâu?";
+		q3.ansA = "A. Nhà";
+		q3.ansB = "B. Công ty";
+		q3.ansC = "C. Tù";
+		q3.ansD = "D. Khó vl";
+		q3.da = "C";
+
+		var listQue = [];
+		listQue[0] = q1;
+		listQue[1] = q2;
+		listQue[2] = q3;
+
+		var n = 0;
+
+		function CheckResult(result) {
+			var tr = $('#tr');
+			var fa = $('#fa');
+
+			n++;
+			var listAns = $(".ans");
+
+			for (var i = 0;i < listAns.length; i++) {
+				if ($(listAns[i]).css("background-color") == "rgb(255, 165, 0)") {
+					if ($(listAns[i]).html()[0] == result)
+						tr[0].play();
+					else 
+					{
+						fa[0].play();
+					}
+					
+				}
+			}
+
+			if (result == "A") $("#ans-a").css("background", "green");
+			if (result == "B") $("#ans-b").css("background", "green");
+			if (result == "C") $("#ans-c").css("background", "green");
+			if (result == "D") $("#ans-d").css("background", "green");
+
+			sleep(3000);
+
+			if (n < listQue.length) {
+				$(".ans").css("background", "none");
+				ShowQuestion(listQue[n]);
+			}
+			else alert("Hết câu hỏi");
+		}
+
+
+		function ShowQuestion(question) {
+			$("#question-region").html(question.que);
+			$("#ans-a").html(question.ansA);
+			$("#ans-b").html(question.ansB);
+			$("#ans-c").html(question.ansC);
+			$("#ans-d").html(question.ansD);
+			$(".ans").hover(function() {
+				$(this).css("background", "blue");
+			}, function() {
+				$(this).css("background", "none");
+			});
+			$(".ans").click(function(event) {
+				$(this).css("background", "orange");
+				$(".ans").off("click");
+				CheckResult(question.da);
+			});
+		}
+
+		function Start() {
+			for (var i=0; i< listQue.length; i++) {
+				ShowQuestion(listQue[i]);
+			}
+		}
+
+		ShowQuestion(listQue[0]);
+
+
+	</script>
+</body>
+</html>
