@@ -33,7 +33,7 @@
         
         //get value of question from POST
         for($j=1;$j<count($arr_Id);$j++){
-            $id= split("\|", $arr_Id[$j])[0];
+            $id= explode("|", $arr_Id[$j])[0];
             if(isset($_POST[$id])){
                 $sum+= $_POST[$id];
             }
@@ -52,7 +52,7 @@
                 }
         fclose($file_A);       
         for($i=1;$i<count($new_Arr);$i++){
-            $temp= split("\|", $new_Arr[$i]);
+            $temp= explode("|", $new_Arr[$i]);
             $num1=intval($temp[0]);
             $num2=intval($temp[1]);
             if(($sum>=$num1)&&($sum<=$num2)){
