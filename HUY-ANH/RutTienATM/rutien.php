@@ -34,50 +34,64 @@
             <input type="submit" name="send" id="send" value="Send">
         </form>
         <?php
+             //hàm đệ quy quay lui xử lý tiền
+           
+            
             if($_SERVER["REQUEST_METHOD"]=="POST"):
                //process
                //working
-               $ruttien= intval($_POST['ruttien']);
-               $fullMoney=array();
+               $sotien= intval($_POST['ruttien']);
+               $tien=array();
                $typeMoney= explode(" ", $_POST['menhgia']);
                $amountMoney= explode(" ", $_POST['soluong']);
                if(count($typeMoney)!=count($amountMoney)){
                    echo 'Khong khop so luong tien va menh gia';
                    exit;
                }
-             
+               //mảng tiền sẽ có cấu trúc như sau [loại tiền,số lượng,số tờ lấy]
                for ($i=0;$i<count($typeMoney);$i++){
-                   $fullMoney[intval($typeMoney[$i])]=intval($amountMoney[$i]);
+                   $tien[$i][0]=intval($typeMoney[$i]);
+                   $tien[$i][1]=intval($amountMoney[$i]);
+                   $tien[$i][2]=0;
                }
-//               print_r($fullMoney);
-               $result= array();
-               $totalAmount=0;
-               $curMoney=intval($_POST['ruttien']);
-               foreach ($fullMoney as $money => $amout) {
-                   if($curMoney>=$money){
-                       $x= floor($curMoney/$money);
-                       if($x>$amout){
-                           $result[$money]=$amout;
-                           $curMoney-=$money*$amout;
-                           $totalAmount+=$amout;
-                       }else{
-                           $result[$money]=$x;
-                           $curMoney-=$money*$x;
-                           $totalAmount+=$x;
-                       }
-                         if($curMoney==0){
-                               if($totalAmount!=0){
-                                   foreach ($result as $key => $value) {
-                                       echo "Money type ".$key." amount ".$value."</br>";
-                                   }
-                               }
-                               else {
-                                   echo "<h1>Không rút được tiền</h1>";
-                               }
-                         }
-                   }
-               }
-            endif;
+                $i2=count($tien)-1;   
+                 if (money($sotien, $i2) == 0)
+                    {
+                        $tongtien = 0;
+                        
+                        for ($i = 0; $i <= $i2; $i++)
+                        {
+                            echo "Menh gia : " .$tien[$i][0]." | So to : ".$tien[$i][2]."<br>";
+//                        
+                        }
+                        
+                       
+                    }
+                    else
+                    {
+                        echo "\nKhong the rut tien do so luong tien trong ATM khong du";
+                    }
+//               print_r($tien);
+           endif;
+             function money($sotien,$j)
+            {
+                global $tien;
+                        
+                if ($j == 0) return $sotien;
+                if ($sotien < $tien[$j][0] || $tien[$j][1] == 0) return money($sotien, $j - 1);
+
+                        $tien[$j][2] = $sotien / $tien[$j][0];
+                        if ($tien[$j][2] > $tien[$j][1]) $tien[$j][2] = $tien[$j][1];
+                        $sotien -= $tien[$j][2] * $tien[$j][0];
+                        if ($sotien == 0) return 0;                   
+                            for ($i = $tien[$j][2]; $i >= 0; $i--)
+                            {
+                                if (money($sotien, $j - 1) == 0) return 0;
+                                $tien[$j][2]--;
+                                $sotien += $tien[$j][0];// Quay lui
+                            }           
+                            return $sotien;                    
+            }
         
         
         
