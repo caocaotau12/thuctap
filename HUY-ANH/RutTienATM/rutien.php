@@ -36,7 +36,7 @@
         <?php
             if($_SERVER["REQUEST_METHOD"]=="POST"):
                //process
-               
+               //working
                $ruttien= intval($_POST['ruttien']);
                $fullMoney=array();
                $typeMoney= explode(" ", $_POST['menhgia']);
