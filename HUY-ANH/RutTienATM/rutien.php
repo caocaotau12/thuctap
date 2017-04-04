@@ -49,11 +49,12 @@
                for ($i=0;$i<count($typeMoney);$i++){
                    $fullMoney[intval($typeMoney[$i])]=intval($amountMoney[$i]);
                }
+//               print_r($fullMoney);
                $result= array();
                $totalAmount=0;
                $curMoney=intval($_POST['ruttien']);
                foreach ($fullMoney as $money => $amout) {
-                   if($curMoney>$money){
+                   if($curMoney>=$money){
                        $x= floor($curMoney/$money);
                        if($x>$amout){
                            $result[$money]=$amout;
