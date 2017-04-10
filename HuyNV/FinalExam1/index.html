@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Bài kiểm tra kết thúc Module Javascript/ JQuery</title>
+	<script language="javascript" src="js/jquery.min.js"></script>
+	<script language="javascript" src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container" style="height: 800px; background: #eee; position: relative;" >
+		<div id="contain" style="position: absolute; width: 74px; height: 74px; border: 4px solid red;"></div>
+		<button id="Move" style="width: 100px; height: 50px; background: #FFF; font-size: 20px;">Click me</button>
+		<img id="obj" src="logoxanh.png" alt="Ảnh di chuyển" style="position: absolute;">
+	</div>
+	<script language="javascript">
+
+		var randt1 = Math.floor((Math.random() * 720) + 1);
+		var randt2 = Math.floor((Math.random() * 720) + 1);
+		var randl1 = Math.floor((Math.random() * 1080) + 1);
+		var randl2 = Math.floor((Math.random() * 1080) + 1);
+
+		$("#contain").css("top", randt1 + "px");
+		$("#contain").css("left", randl1 + "px");
+		$("#obj").css("top", randt2 + "px");
+		$("#obj").css("left", randl2 + "px");
+
+		var x0 = $("#obj").position().left;
+		var y0 = $("#obj").position().top;
+		var aCP = $("#contain").position().left + 4 - $("#obj").position().left;
+		var bCP = $("#contain").position().top + 4 - $("#obj").position().top;
+		var count = 0;
+		var t = 0;
+
+
+
+		
+		$("#Move").click(function() {
+			var intervalObject = setInterval(function() {
+				count = count + 1;
+				t = t + 0.001;
+				newLeft = x0 + aCP*t;
+				newTop = y0 + bCP*t;
+				$("#obj").css("top", newTop + "px");
+				$("#obj").css("left", newLeft + "px");
+
+				if (count == 1000) { clearInterval(intervalObject); $("#Move").off("click"); }
+			}, 5);
+			
+		});
+
+		
+	</script>
+</body>
+</html>
