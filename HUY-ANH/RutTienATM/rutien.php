@@ -90,7 +90,7 @@
                             for ($i = $tien[$j][3]; $i >= 0; $i--)
                             {
                                 if (money($sotien, $j - 1) == 0) return 0;
-                            if($tien[$j][3]>0){
+                                if($tien[$j][3]>0){
                                 $tien[$j][3]--;
                                 $sotien += $tien[$j][1];
                                 
