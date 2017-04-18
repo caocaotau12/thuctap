@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Practice</title>
+	<script language="javascript" src="js/jquery.min.js"></script>
+	<script language="javascript" src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+		.item-color {
+			padding: 0!important;
+			height: 100%;
+		}
+
+		.item-color:hover {
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="tool" style="width: 800px; height: 100px; background: #eee">
+			<input type="radio" name="tool" id="eraser">Eraser</input>
+			<input type="radio" name="tool" id="pen" checked="true">Pen</input>
+			<input type="radio" name="tool" id="line">Line</input>
+			<input type="radio" name="tool" id="hcn">Hình chữ nhật</input>
+			<input type="radio" name="tool" id="ht">Hình tròn</input>
+			<input type="radio" name="tool" id="htg">Hình tam giác</input>
+			<span>Nét vẽ</span>
+			<select id="selected">
+			  <option value="xs">1</option>
+			  <option value="sm">2</option>
+			  <option value="md">3</option>
+			  <option value="lg">4</option>
+			</select>
+			<input type="button" value="Clear" id="clr">
+			<div id="color" style="width: 250px; height: 50px;">
+				<div class="row" style="margin-left: 50px; height: 20px; width: 100%;">
+					<div class="col-xs-1 item-color" style="background: #000000;"></div>
+					<div class="col-xs-1 item-color" style="background: #7F7F7F;"></div>
+					<div class="col-xs-1 item-color" style="background: #880015;"></div>
+					<div class="col-xs-1 item-color" style="background: #ED1C24;"></div>
+					<div class="col-xs-1 item-color" style="background: #FF7F27;"></div>
+					<div class="col-xs-1 item-color" style="background: #FFF200;"></div>
+					<div class="col-xs-1 item-color" style="background: #22B14C;"></div>
+					<div class="col-xs-1 item-color" style="background: #00A2E8;"></div>
+					<div class="col-xs-1 item-color" style="background: #3F48CC;"></div>
+					<div class="col-xs-1 item-color" style="background: #A349A4;"></div>
+					<div class="col-xs-1 item-color" style="background: #C8BFE7;"></div>
+					<div class="col-xs-1 item-color" style="background: #7092BE;"></div>
+				</div>
+				<div class="row" style="margin-left: 50px; height: 20px; width: 100%;">
+					<div class="col-xs-1 item-color" style="background: #FFFFFF;"></div>
+					<div class="col-xs-1 item-color" style="background: #C3C3C3;"></div>
+					<div class="col-xs-1 item-color" style="background: #B97A57;"></div>
+					<div class="col-xs-1 item-color" style="background: #FFAEC9;"></div>
+					<div class="col-xs-1 item-color" style="background: #FFC90E;"></div>
+					<div class="col-xs-1 item-color" style="background: #EFE4B0;"></div>
+					<div class="col-xs-1 item-color" style="background: #B5E61D;"></div>
+					<div class="col-xs-1 item-color" style="background: #99D9EA;"></div>
+					<div class="col-xs-1 item-color" style="background: #FF0000;"></div>
+					<div class="col-xs-1 item-color" style="background: #0000FF;"></div>
+					<div class="col-xs-1 item-color" style="background: #B74866;"></div>
+					<div class="col-xs-1 item-color" style="background: #48B89C;"></div>
+				</div>
+			</div>
+			<input type="button" value="Undo" id="undo">
+			<input type="button" value="Redo" id="redo">
+		</div>
+		<canvas id="myCanvas" width="800" height="800" style="border: 2px solid #000;"></canvas>
+	</div>
+	<script language="javascript">
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		var X;
+		var Y;
+		var pain = false;
+		var tool = "pen";
+		var imgData;
+		var color;
+		var lw = 3;
+		var Status = new Array();
+		var currentStt;
+
+		window.onload = function() {
+			var temp_stt = ctx.getImageData(0,0,canvas.width,canvas.height);
+			Status.push(temp_stt);
+			currentStt = 0;
+		}
+
+		$("#undo").click(function() {
+			if (currentStt > 0) {
+				currentStt--;
+				canvas.width = canvas.width;
+				ctx.putImageData(Status[currentStt],0,0);
+			}
+		});
+
+		$("#redo").click(function() {
+			if (currentStt < Status.length - 1) {
+				currentStt++;
+				canvas.width = canvas.width;
+				ctx.putImageData(Status[currentStt],0,0);
+			}
+		});
+
+		$("#selected").change(function() {
+			if ($("#selected").val() == "xs") lw = 3;
+			if ($("#selected").val() == "sm") lw = 6;
+			if ($("#selected").val() == "md") lw = 10;
+			if ($("#selected").val() == "lg") lw = 20;
+		});
+
+		var ColorToHex = function(colorStr){
+		    var hex = '#';
+		    $.each(colorStr.substring(4).split(','), function(i, str){
+		        var h = ($.trim(str.replace(')',''))*1).toString(16);
+		        hex += (h.length == 1) ? "0" + h : h;
+		    });
+		    return hex;
+		};
+
+		$(".item-color").click(function() {
+			color = ColorToHex($(this).css("background-color"));
+		});
+
+		$("#myCanvas").mousedown(function(e) {
+			X = e.pageX - $("#myCanvas").position().left;
+			Y = e.pageY - $("#myCanvas").position().top;
+
+			pain = true;
+
+			if ((tool != "pen") && (tool != "eraser")) {
+				imgData = ctx.getImageData(0,0,canvas.width,canvas.height);
+			}
+		});
+
+		$("#myCanvas").mousemove(function(e) {
+			if (pain) {
+				var newX = e.pageX - $("#myCanvas").position().left;
+				var newY = e.pageY - $("#myCanvas").position().top;
+
+				if (tool == "pen") {
+					$(this).css("cursor","url('pen.png'), default;")
+					ctx.beginPath();
+					ctx.lineWidth = lw;
+					ctx.strokeStyle = color;
+					ctx.moveTo(X,Y);
+					ctx.lineTo(newX,newY);
+					ctx.stroke();
+					ctx.closePath();
+
+					X = newX;
+					Y = newY;
+				}
+
+				if (tool == "line") {
+					canvas.width = canvas.width;
+
+					ctx.putImageData(imgData,0,0);
+					ctx.strokeStyle = color;
+					ctx.beginPath();
+					ctx.lineWidth = lw;
+					ctx.moveTo(X,Y);
+					ctx.lineTo(newX,newY);
+					ctx.stroke();
+					ctx.closePath();
+
+				}
+
+				if (tool == "hcn") {
+					canvas.width = canvas.width;
+
+					ctx.putImageData(imgData,0,0);
+					ctx.lineWidth = lw;
+					ctx.strokeStyle = color;
+					ctx.strokeRect(X,Y,Math.abs(newX - X),Math.abs(newY - Y));
+					
+				}
+
+				if (tool == "ht") {
+					canvas.width = canvas.width;
+					ctx.putImageData(imgData,0,0);
+					ctx.strokeStyle = color;
+
+					ctx.beginPath();
+					ctx.lineWidth = lw;
+					ctx.arc(X,Y,Math.sqrt((newX - X)*(newX - X) + (newY - Y)*(newY - Y)),0,2*Math.PI);
+					ctx.stroke();
+					ctx.closePath();
+					
+				}
+
+				if (tool == "eraser") {
+					ctx.beginPath();
+					ctx.lineWidth = 100;
+					ctx.strokeStyle = "white";
+					ctx.moveTo(X,Y);
+					ctx.lineTo(newX,newY);
+					ctx.stroke();
+					ctx.closePath();
+
+					X = newX;
+					Y = newY;
+				}
+
+				if (tool == "htg") {
+					canvas.width = canvas.width;
+					ctx.lineWidth = lw;
+
+					ctx.putImageData(imgData,0,0);
+					ctx.beginPath();
+					ctx.strokeStyle = color;
+					ctx.moveTo((X + newX)/2,Y);
+					ctx.lineTo(X,newY);
+					ctx.lineTo(newX,newY);
+					ctx.lineTo((X + newX)/2,Y);
+					ctx.stroke();
+					ctx.closePath();
+				}
+			}
+		});
+
+		$("#myCanvas").mouseup(function() {
+			pain = false;
+			var temp_stt = ctx.getImageData(0,0,canvas.width,canvas.height);
+			Status.push(temp_stt);
+			currentStt = Status.length - 1;
+		});
+
+		$("#myCanvas").mouseleave(function() {
+			if (pain) {
+				var temp_stt = ctx.getImageData(0,0,canvas.width,canvas.height);
+				Status.push(temp_stt);
+				currentStt++;
+			}
+			pain = false;
+		});
+
+		$("#clr").click(function() {
+			canvas.width = canvas.width;
+		});
+
+		$("#pen").change(function() {
+			if (this.value){
+				tool = "pen";
+
+			}
+		});
+
+		$("#line").change(function() {
+			if (this.value) tool = "line";
+		});
+
+		$("#hcn").change(function() {
+			if (this.value) tool = "hcn";
+		});
+
+		$("#ht").change(function() {
+			if (this.value) tool = "ht";
+		});
+
+		$("#htg").change(function() {
+			if (this.value) tool = "htg";
+		});
+
+		$("#eraser").change(function() {
+			if (this.value) tool = "eraser";
+		});
+	</script>
+</body>
+</html>
