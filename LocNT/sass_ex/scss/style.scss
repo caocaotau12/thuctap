@@ -1,0 +1,27 @@
+%btn {
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px
+}
+
+.default {
+    @extend %btn;
+    background: none;
+    color: black;
+    &:hover {
+        cursor: pointer;
+        background: gray;
+    }
+}
+
+.primary {
+    @extend %btn;
+    background: #4d90fe;
+    color: white;
+    &:hover {
+        cursor: pointer;
+        background: blue;
+    }
+}

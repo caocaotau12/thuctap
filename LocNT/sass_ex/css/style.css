@@ -1,0 +1,22 @@
+.default, .primary {
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 5px; }
+
+.default {
+  background: none;
+  color: black; }
+  .default:hover {
+    cursor: pointer;
+    background: gray; }
+
+.primary {
+  background: #4d90fe;
+  color: white; }
+  .primary:hover {
+    cursor: pointer;
+    background: blue; }
+
+/*# sourceMappingURL=style.css.map */
