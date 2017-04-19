@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Magic Paper</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+	<script language="javascript" src="js/jquery.min.js"></script>
+	<script language="javascript" src="js/bootstrap.min.js"></script>
+	<style>
+		.format-icon {
+			color: white;
+			font-size: 35px;
+		}
+ 	
+		.caro {
+			border: 1px solid red;
+			background: black;
+			padding-bottom: 1%;
+		}
+
+		.num {
+			font-size: 20px;
+			color: white;
+			margin-bottom: 0;
+		}
+
+		#answer {
+			margin-top: 2%;
+			margin-left: 35%;
+			width: 30%;
+			height: 50px;
+			color: white;
+			background: black;
+			font-size: 30px;
+		}
+
+		#result {
+			width: 50%;
+			height: 50%;
+			position: absolute;
+			top: 20%;
+			left: 25%;
+			background: yellow;
+			display: none;
+		}
+
+		#res-icon {
+			margin-top: 7%;
+			font-size: 350px;
+			color: white;
+		}
+
+		#guide {
+			font-size: 20px;
+		}
+
+		#play {
+			display: none;
+		}
+
+	</style>
+	<script language="javascript">
+		var ListIcons = new Array("glyphicon-heart", "glyphicon-star", "glyphicon-glass", "glyphicon-tint", "glyphicon-leaf", "glyphicon-tree-deciduous", "glyphicon-apple", "glyphicon-bell", "glyphicon-eject", "glyphicon-home");
+		// glyphicon-heart glyphicon-star glyphicon-glass glyphicon-tint glyphicon-leaf glyphicon-tree-deciduous glyphicon-apple glyphicon-bell glyphicon-eject glyphicon-home
+
+		var resNum = null;
+
+		function Start() {
+			var ranNum = Math.floor((Math.random() * 10) + 1) - 1;
+
+			for (var i = 0; i <= 99; i++) {
+				if (i % 9 != 0) {
+					ranNum = Math.floor((Math.random() * 10) + 1) - 1;
+					$("span:eq(" + i + ")").addClass(ListIcons[ranNum]);
+				}
+				if ((i == 0) || (i == 90) || (i == 99)) {
+					ranNum = Math.floor((Math.random() * 10) + 1) - 1;
+					$("span:eq(" + i + ")").addClass(ListIcons[ranNum]);
+				}
+			}
+
+			resNum = Math.floor((Math.random() * 10) + 1) - 1;
+
+			for (var i = 9; i <= 81; i=i+9) {
+				$("span:eq(" + i + ")").addClass(ListIcons[resNum]);
+			}
+		}
+
+		function sleep(milliseconds) {
+		  	var start = new Date().getTime();
+		  	for (var i = 0; i < 1e7; i++) {
+		    	if ((new Date().getTime() - start) > milliseconds){
+		      		break;
+		    	}
+		  }
+		}
+
+		function ShowResult() {
+			
+			// for (var i = 0; i < 10; i++) {
+			// 	var temp = Math.floor((Math.random() * 10) + 1) - 1;
+
+			// 	console.log(ListIcons[temp]);
+
+			// 	setTimeout(function() {
+			// 		$("#res-icon").addClass(ListIcons[temp]);
+			// 	},100);
+
+			// 	$("#res-icon").removeClass(ListIcons[temp]);
+			// }
+
+			sleep(2000);
+
+			$("#res-icon").addClass(ListIcons[resNum]);
+		}
+
+		function Next() {
+			$("#guide").css("display", "none");
+			$("#play").css("display", "block");
+		}
+
+		function Reset() {
+			// $("#guide").css("display", "block");
+			// $("#play").css("display", "none");
+			// $("#result").css("display", "none");
+			// $("#res-icon").removeClass(ListIcons[resNum]);
+			// Start();
+			location.reload(true);
+		}
+	</script>
+</head>
+<body>
+	<div class="container" id="guide">
+		<h1>Welcome to Magicpaper fungame! Are you readdy..? >.<</h1>
+        <p>Hãy nghĩ trong đầu một con số có hai chữ số. Sau đó cộng hai chữ số của số đó lại với nhau rồi lấy số đã nghĩ trừ cho kết quả vừa cộng được.</p>
+        <p>Ví dụ : Bạn nghĩ số 32 thì lấy 3 + 2 = 5 rồi lấy 32 - 5 = 27. Số 27 này là kết quả cuối cùng.</p>
+        <button onclick="Next()">Tiếp theo </button>
+	</div>
+	<div class="container" id="play" style="background: yellow; position: relative;">
+		<p class="text-center" style="font-size: 20px; color: black;">Tiếp theo bạn hãy tìm kiếm ký hiệu tương ứng với kết quả cuối cùng bằng bảng dưới đây rồi ghi nhớ ký hiệu đó vào trong đầu. Cuối cùng nhấn vào nút "Kết quả" để xem kết quả.</p>
+		<div class ="row">
+			<div class="col-xs-1 col-xs-offset-1 caro text-center">
+				<p class="text-center num">
+					00
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					01
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					02
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					03
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					04
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					05
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					06
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					07
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					08
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					09
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+		</div>
+
+		<div class ="row">
+			<div class="col-xs-1 col-xs-offset-1 caro text-center">
+				<p class="text-center num">
+					10
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					11
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					12
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					13
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					14
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					15
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					16
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					17
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					18
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					19
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+		</div>
+
+		<div class ="row">
+			<div class="col-xs-1 col-xs-offset-1 caro text-center">
+				<p class="text-center num">
+					20
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					21
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					22
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					23
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					24
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					25
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					26
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					27
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					28
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					29
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+		</div>
+
+		<div class ="row">
+			<div class="col-xs-1 col-xs-offset-1 caro text-center">
+				<p class="text-center num">
+					30
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					31
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					32
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					33
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					34
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					35
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					36
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					37
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					38
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					39
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+		</div>
+
+		<div class ="row">
+			<div class="col-xs-1 col-xs-offset-1 caro text-center">
+				<p class="text-center num">
+					40
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					41
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					42
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					43
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					44
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					45
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					46
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					47
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					48
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					49
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+		</div>
+
+		<div class ="row">
+			<div class="col-xs-1 col-xs-offset-1 caro text-center">
+				<p class="text-center num">
+					50
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					51
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					52
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					53
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					54
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					55
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					56
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					57
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					58
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					59
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+		</div>
+
+		<div class ="row">
+			<div class="col-xs-1 col-xs-offset-1 caro text-center">
+				<p class="text-center num">
+					60
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					61
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					62
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					63
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					64
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					65
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					66
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					67
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					68
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					69
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+		</div>
+
+		<div class ="row">
+			<div class="col-xs-1 col-xs-offset-1 caro text-center">
+				<p class="text-center num">
+					70
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					71
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					72
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					73
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					74
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					75
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					76
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					77
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					78
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					79
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+		</div>
+
+		<div class ="row">
+			<div class="col-xs-1 col-xs-offset-1 caro text-center">
+				<p class="text-center num">
+					80
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					81
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					82
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					83
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					84
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					85
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					86
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					87
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					88
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					89
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+		</div>
+
+		<div class ="row">
+			<div class="col-xs-1 col-xs-offset-1 caro text-center">
+				<p class="text-center num">
+					90
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					91
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					92
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					93
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					94
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					95
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					96
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					97
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					98
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+			<div class="col-xs-1 caro text-center">
+				<p class="text-center num">
+					99
+				</p>
+				<span class="glyphicon format-icon" aria-hidden="true"></span>
+
+			</div>
+		</div>
+
+		<div id="result" class="text-center">
+			<span class="glyphicon format-icon text-center" aria-hidden="true" id="res-icon"></span>
+			<button type="button" class="btn btn-primary" id="restart" onclick="Reset()">Chơi lại</button>
+		</div>
+
+		<button type="button" class="btn btn-primary" id="answer">Trả lời</button>
+
+	</div>
+
+	<script language="javascript">
+		//Math.floor((Math.random() * 10) + 1);
+		Start();
+
+		$("#answer").click(function() {
+			$("#result").css("display","block");
+		});
+		$("#answer").click(ShowResult);
+
+
+	</script>
+
+	<!--<script language="javascript" src="js/bootstrap.min.js"></script>-->
+	
+</body>
+</html>

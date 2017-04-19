@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script language="javascript" src="jquery.min.js"></script>
+	<style>
+		.red {
+			height: 200px;
+			background: red;
+		}
+
+		.green {
+			height: 200px;
+			background: green;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="red">
+		
+	</div>
+	<div class="green">
+		
+	</div>
+	<input type="button" name="" id="show" value="Đổi màu">
+
+	<script language="javascript">
+		$("#show").click(function() {
+			var listDiv = $('div');
+			for (var i = 0; i < listDiv.length; i++) {
+				if ($(listDiv[i]).hasClass('red')) {
+					$(listDiv[i]).removeClass('red');
+					$(listDiv[i]).addClass('green');
+				}
+
+				else if ($(listDiv[i]).hasClass('green')) {
+					$(listDiv[i]).removeClass('green');
+					$(listDiv[i]).addClass('red');
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>

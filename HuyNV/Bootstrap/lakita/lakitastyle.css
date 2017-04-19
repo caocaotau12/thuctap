@@ -1,0 +1,136 @@
+@font-face {
+    font-family: Helvetica;
+    src: url('fonts/helveticaneuelight.ttf')
+}
+
+.helve {
+    font-family: Helvetica;
+}
+
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 80px;
+    height: 80px;
+    padding-top: 0;
+    color: white !important;
+    font-size: 17.3px;
+    font-family: Helvetica;
+}
+
+.navbar-brand {
+    padding-top: 5px;
+    margin-left: 20px;
+}
+
+.navbar-right {
+    margin-right: 30px;
+    margin-top: 18px;
+}
+
+.navbar-right button {
+    width: 115px;
+    height: 30px;
+    color: white;
+    font-size: 18.9px;
+    line-height: 15px;
+}
+
+#sign-in {
+    background: #009d12;
+    border: none;
+}
+
+#log-in {
+    background: none;
+    margin-right: 10px;
+}
+
+#cover {
+    padding-bottom: 5%;
+    padding-top: 85px;
+    background-attachment: fixed;
+    margin-left: 0;
+    background-position: center;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+#key {
+    color: white;
+}
+
+#line-1 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 0px;
+}
+
+#line-2 {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 90px;
+}
+
+#line {
+    font-size: 30px;
+    color: white;
+}
+
+#rgt-now {
+    width: 100%;
+    background: #009d12;
+    font-size: 25px;
+}
+
+#video-demo {
+    width: 100%;
+    background: #ffaa1a;
+    margin-top: 10px;
+    font-size: 25px;
+    color: white;
+}
+
+#system {
+    margin-top: 50px;
+}
+
+#region-1 {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+#region-2 {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+#region-3 {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+#region-1 span {
+    display: inline-block;
+    font-size: 20px;
+    background: #009d12;
+    color: white;
+    border-radius: 5px;
+}
+
+#region-2 span {
+    display: inline-block;
+    font-size: 20px;
+    background: #ffaa1a;
+    color: white;
+    border-radius: 5px;
+}
+
+#region-3 span {
+    display: inline-block;
+    font-size: 20px;
+    background: #d9501e;
+    color: white;
+    border-radius: 5px;
+}
