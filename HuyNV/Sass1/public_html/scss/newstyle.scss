@@ -1,0 +1,39 @@
+$container-background: #eee;
+$default-background-hover: #9B9595;
+$primary-background-hover: #337AA0;
+$primary-background: #337AB7;
+
+.container {
+    width: 1000px;
+    height: 500px;
+    background: $container-background;
+    margin: auto;
+}
+
+%btn {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.default {
+    @extend %btn;
+    background: none;
+    color: black;
+    &:hover {
+        background: $default-background-hover;
+    }
+}
+
+.primary {
+    @extend %btn;
+    background: $primary-background;
+    color: white;
+    &:hover {
+        background: $primary-background-hover;
+    }
+}

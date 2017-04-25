@@ -1,27 +1,27 @@
-#container {
+.container {
   width: 1000px;
   height: 500px;
   background: #eee;
   margin: auto; }
 
-#default, #primary {
+.default, .primary {
   width: 100px;
   height: 50px;
   border-radius: 10px;
   font-size: 20px; }
+  .default:hover, .primary:hover {
+    cursor: pointer; }
 
-#default {
+.default {
   background: none;
   color: black; }
-  #default:hover {
-    cursor: pointer;
+  .default:hover {
     background: #9B9595; }
 
-#primary {
+.primary {
   background: #337AB7;
   color: white; }
-  #primary:hover {
-    cursor: pointer;
+  .primary:hover {
     background: #337AA0; }
 
 /*# sourceMappingURL=newstyle.css.map */
