@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Comments Facebook</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+            #page{
+                width: 50%;
+                margin-right: 10px;
+
+            }
+        </style>
+    </head>
+    <body >
+
+        <div id="login">
+            <div  class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false" onlogin="checkLoginState();"></div>
+        </div>
+        <div id="status"> </div>
+        <!-- <input type="text" id="page"/>-->
+
+        <div class="container">
+            <div class="input-group" id="pg">
+                <span class="input-group-addon">URL</span>
+                <input id="page" type="text" class="form-control" name="msg" placeholder="Nhập mã URL page">
+
+                <!-- <button id="cmt" onclick="iddd()">Lấy comments</button>-->
+                <button id="cmt" type="button" class="btn btn-success" onclick="iddd()">Lấy comments</button>
+            </div>
+            <h2 style="color: brown">Danh sách comments chưa trả lời</h2>             
+            <table class="table table-hover">
+                <thead>
+                    <tr style="color: brown">
+                        <th>STT</th>
+                        <th>Nội dung</th>
+                        <th>Thời gian</th>
+                        <th>Trả lời</th>
+                    </tr>
+                </thead>
+                <tbody id="ds">
+
+                </tbody>
+            </table>
+        </div>
+        <script>
+            var idpage;
+            var stt;
+
+            function statusChangeCallback(response) {
+                // console.log('statusChangeCallback');
+                // console.log(response);
+
+
+                if (response.status === 'connected') {
+                    testAPI();
+                    document.getElementById('pg').style.visibility = 'visible';
+                    // document.getElementById('cmt').style.visibility = 'visible';
+                } else {
+                    document.getElementById('pg').style.visibility = 'hidden';
+                    // document.getElementById('cmt').style.visibility = 'hidden';
+                }
+            }
+            function checkLoginState() {
+                FB.getLoginStatus(function (response) {
+                    statusChangeCallback(response);
+                },
+                        {scope: 'publish_actions'});
+            }
+
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '1334198013341654',
+                    cookie: true, // enable cookies to allow the server to access 
+                    // the session
+                    xfbml: true, // parse social plugins on this page
+                    version: 'v2.8' // use graph api version 2.8
+                });
+
+                FB.getLoginStatus(function (response) {
+                    statusChangeCallback(response);
+                    // var i = 0;
+                    /*  var currParam = '';
+                     var getPosts = function (response) {
+                     // console.log('dddddddddd');
+                     for (element in response.data) {
+                     post = response.data[element];
+                     console.log(post.id);
+                     }
+                     nextPage = response.paging.next;
+                     var params = getUrlVars(nextPage);
+                     //console.log(typeof params );
+                     if(params.until== currParam ) return false;
+                     currParam = params.until;
+                     // console.log(params);
+                     var param2 = {limit: 100, until: params.until};
+                     FB.api('/194149144034882/feed', param2, getPosts)
+                     }
+                     FB.api('/194149144034882/feed', {limit: '100'}, getPosts);*/
+                });
+            };
+
+            function getUrlVars(nextPage)
+            {
+                var vars = [], hash;
+                var hashes = nextPage.slice(nextPage.indexOf('?') + 1).split('&');
+                for (var i = 0; i < hashes.length; i++)
+                {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars;
+            }
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            function testAPI() {
+
+                FB.api('/me', function (response) {
+                    document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
+                });
+            }
+
+            function comment(feed) {
+                FB.api('/' + feed + '/comments', 'get', {fields: 'id,message,created_time'}, function (response) {
+                    for (var i = 0; i < response.data.length; i++) {
+
+                        repcmt(response.data[i].id, response.data[i].message, response.data[i].created_time);
+
+                    }
+
+                });
+            }
+            function repcmt(idcmt, mes, time) {
+                var t = 0;
+                FB.api('/' + idcmt + '/comments', 'get', {fields: 'from'}, function (response) {
+                    for (var i = 0; i < response.data.length; i++) {
+                        if (response.data[i].from.id == idpage) {
+                            t = t + 1;
+                            break;
+                        }
+                    }
+                    if (t == 0) {
+                        stt = stt + 1;
+                        // console.log(idcmt + "-[content]-" + mes);
+                        document.getElementById('ds').innerHTML += '<tr><td>' + stt + '</td><td>' + mes + '</td><td>' + time +
+                                '</td><td><a target=_blank href=https://fb.com/' + idcmt + '>Trả lời</a></td></tr>';
+
+                    }
+
+                });
+            }
+            var currParam = '';
+            var getPosts = function (response) {
+                // console.log('dddddddddd');
+                for (element in response.data) {
+                    post = response.data[element];
+                    comment(post.id);
+                    //console.log(post.id);
+                }
+                nextPage = response.paging.next;
+                var params = getUrlVars(nextPage);
+                //console.log(typeof params );
+                if (params.until == currParam)
+                    return false;
+                currParam = params.until;
+                // console.log(params);
+                var param2 = {limit: 100, until: params.until};
+                FB.api('/' + idpage + '/feed', param2, getPosts);
+            }
+            function feed() {
+                stt = 0;
+                document.getElementById('ds').innerHTML = "";
+                console.log(idpage);
+                currParam = '';
+                FB.api('/' + idpage + '/feed', {limit: '100'}, getPosts);
+                /*var mang = [];
+                 FB.api('/' + idpage + '/feed', 'get', {fields: 'id,message'}, {limit: 100}, function (response) {
+                 console.log(response);
+                 console.log(response.paging.next);
+                 for (var i = 0; i < response.data.length; i++) {
+                 comment(response.data[i].id);
+                 }
+                 });*/
+            }
+            function iddd() {
+
+                FB.api('/' + document.getElementById('page').value, 'get', function (re) {
+                    idpage = re.id;
+                    if (typeof idpage == 'undefined') {
+                        alert('Bạn vui lòng nhập lại URL')
+                    } else {
+                        idpage = re.id;
+                        console.log(idpage);
+                        feed();
+                    }
+                }
+                );
+
+            }
+
+        </script>
+
+    </body>
+</html>
