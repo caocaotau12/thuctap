@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Test Video</title>
+	
+	<script src="jquery.min.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8" async defer></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div id="container" style="position: relative; width: 1024px; height: 768px; margin: auto;">
+		<button id="myBut" style="display: none;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false">
+		  Launch demo modal
+		</button>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Tương tác với học viên</h4>
+		      </div>
+		      <div class="modal-body">
+		    	<p>Câu 1: Nuôi gì tốn nhất?</p>
+		    	<input type="radio" name="tool" id="a" value="Nuôi chó">Nuôi chó</input>
+				<input type="radio" name="tool" id="b" value="Nuôi lô">Nuôi lô</input>
+				<input type="radio" name="tool" id="c" value="Nuôi gái">Nuôi gái</input>
+				<input type="radio" name="tool" id="d" value="Nuôi mộng">Nuôi mộng</input>
+		      </div>
+		      <div class="modal-footer">
+		        <button id="send" type="button" class="btn btn-default" data-dismiss="modal">Send</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<video id="video" style="width: 100%; height: 100%" controls>
+			  <source src="Test.mp4" type="video/mp4">
+			  Your browser does not support the video tag.
+		</video>
+	</div>
+	<script language="javascript">
+
+		var vid = document.getElementById("video");
+		vid.setAttribute("controls", "none");
+		var obj;
+		var temp = 0;
+
+		function ShowWhenPlay() {
+			if (Math.floor(vid.currentTime) != temp) {
+				temp = Math.floor(vid.currentTime);
+				if (Math.floor(vid.currentTime) == 5) {
+					vid.pause();
+					if (document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen) document.webkitExitFullscreen();
+					$("#myBut").click();
+					vid.removeEventListener("timeupdate", ShowWhenPlay);
+					vid.removeEventListener("seeked", ShowWhenSeek);
+				};
+			}
+		}
+
+		function ShowWhenSeek() {
+			if (Math.floor(vid.currentTime) >= 5) {
+					vid.pause();
+					if (document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen) document.webkitExitFullscreen();
+					$("#myBut").click();
+					vid.removeEventListener("timeupdate", ShowWhenPlay);
+					vid.removeEventListener("seeked", ShowWhenSeek);
+			};
+		}
+
+		vid.addEventListener("timeupdate", ShowWhenPlay);
+
+		vid.addEventListener("seeked", ShowWhenSeek);
+	</script>
+</body>
+</html>
