@@ -1,0 +1,329 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+a {
+  display: inline-block; }
+
+li {
+  list-style-type: none; }
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../fonts/OpenSans-Regular.ttf); }
+@font-face {
+  font-family: RobotoSlab;
+  src: url(../fonts/RobotoSlab-Regular.ttf); }
+@font-face {
+  font-family: RobotoCondensed;
+  src: url(../fonts/RobotoCondensed-Regular.ttf); }
+@font-face {
+  font-family: Tinos;
+  src: url(../fonts/Tinos-Regular.ttf); }
+.font-tinos {
+  font-family: Tinos; }
+
+.font-robotocondensed {
+  font-family: RobotoCondensed; }
+
+.course-text {
+  font-weight: bold;
+  font-size: 45px;
+  color: white;
+  text-align: center; }
+
+.font-opensans {
+  font-family: OpenSans; }
+
+.font-robotoSlab {
+  font-family: RobotoSlab; }
+
+.head {
+  background-image: url(../img/background-top.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 5%; }
+
+.resize-img {
+  width: 80%; }
+
+.green-text {
+  color: red;
+  font-size: 150%;
+  text-align: center;
+  margin-top: 0;
+  font-weight: 400; }
+
+.not-imp {
+  display: none;
+  padding-left: 10px; }
+
+.title-note {
+  color: white;
+  font-weight: 400;
+  font-size: 24px; }
+
+.inc {
+  font-size: 100px;
+  color: white;
+  font-weight: 600;
+  line-height: 65px;
+  text-align: center; }
+
+.mrg-top {
+  margin-top: 5%; }
+
+.btn-format {
+  width: 100%;
+  font-size: 140%;
+  background: #249156;
+  color: white;
+  font-weight: 700;
+  border: 0;
+  line-height: 300%; }
+
+.issue-title {
+  border-bottom: 3px solid rgba(0, 171, 107, 0.77);
+  padding-bottom: 6%; }
+
+.issue-icon {
+  display: block;
+  color: rgba(0, 171, 107, 0.77);
+  font-size: 400%;
+  margin-top: 20%;
+  margin-bottom: 5%; }
+
+.issue-head {
+  font-size: 14px;
+  height: 40px; }
+
+.issue-content {
+  font-size: 13px; }
+
+.lakita-share {
+  background-image: url(../img/background-share.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.share-title {
+  border-bottom: 3px solid #10aa86;
+  padding-bottom: 6%;
+  color: red; }
+
+.content-region {
+  border-left: 1px solid white;
+  padding-left: 2%; }
+
+.text-item {
+  color: white;
+  font-size: 13px; }
+
+.share-title-item {
+  font-weight: 700;
+  color: red;
+  font-size: 18px; }
+
+.icon-tick {
+  color: white; }
+
+.icon-region {
+  color: #C79B00;
+  font-size: 400%; }
+
+.testimonial {
+  background-image: url(../img/background-mid.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 5%; }
+
+.testimonial-title {
+  border-bottom: 2px solid #23c23c;
+  padding-bottom: 3%;
+  color: rgba(15, 138, 72, 0.93);
+  font-size: 36px;
+  font-weight: 700; }
+
+.student {
+  width: 100%;
+  border-radius: 20px;
+  border: 3px solid #00c738;
+  background: white;
+  margin-top: 40%; }
+
+.img-student {
+  width: 80%;
+  margin: auto;
+  text-align: center; }
+
+.name {
+  color: #757575;
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 2%; }
+
+.job {
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 2%; }
+
+.cont {
+  color: #212121;
+  font-size: 13px; }
+
+.green-line {
+  border-top: 3px solid #23c23c;
+  width: 50%;
+  margin: auto; }
+
+.img-form {
+  max-width: 100%;
+  border: 3px solid #23c23c;
+  border-radius: 50%;
+  margin-top: -40%; }
+
+.lecture {
+  background-image: url(../img/background-mid-fix.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-bottom: 3%; }
+
+.item-lecture {
+  font-size: 25px;
+  padding-left: 10px; }
+
+.orange-tick {
+  color: #FF5722;
+  font-size: 30px; }
+
+.name-lecture {
+  color: #216b0f;
+  font-size: 27px;
+  margin-top: 2%; }
+
+.register {
+  background-image: url(../img/background-footer.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.white-text {
+  color: white;
+  font-weight: 700; }
+
+.old-price {
+  text-decoration: line-through;
+  font-size: 21px;
+  padding-top: 5%; }
+
+.new-price {
+  font-size: 30px;
+  color: #f44336;
+  font-weight: 700; }
+
+.sale {
+  font-size: 36px; }
+
+.note {
+  font-size: 18px;
+  font-weight: 400; }
+
+.fast {
+  font-size: 30px; }
+
+.inside {
+  width: 85%;
+  margin: auto; }
+
+.black-text {
+  color: #262626;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 27px; }
+
+.small-text {
+  color: #262626;
+  font-size: 14px;
+  font-weight: 700; }
+
+.block {
+  width: 100%;
+  height: 80%;
+  background: #262626;
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  border-radius: 5px; }
+
+.size {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  margin-top: 5%; }
+
+.inp-format {
+  color: #8292B6;
+  border: 1px solid #c2c2c2;
+  font-size: 17px;
+  padding-left: 3%; }
+
+.sub-format {
+  background: #4db90a;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  border: 0;
+  font-weight: 700; }
+
+.attention {
+  background: rgba(0, 0, 0, 0.5);
+  padding-bottom: 1%; }
+
+.sale-time {
+  color: white;
+  font-weight: 400;
+  font-size: 30px; }
+
+.sale-time-detail {
+  color: white;
+  font-weight: 300;
+  font-size: 14px; }
+
+@media (min-width: 768px) {
+  .not-imp {
+    display: inline; }
+
+  .green-text {
+    text-align: right;
+    margin-top: 3%; }
+
+  .course-text, .title-note, .inc {
+    text-align: left; } }
+@media (min-width: 768px) and (max-width: 992px) {
+  .fix-height {
+    height: 230px; }
+
+  .attention {
+    margin-right: 8.3333%; }
+
+  .student {
+    height: 360px; } }
+@media (min-width: 1200px) {
+  .student {
+    height: 370px; } }
+@media (max-width: 768px) {
+  .sm-format {
+    width: 80%;
+    margin-left: 10%; }
+
+  .offset {
+    padding: 5% !important; }
+
+  .icon-region {
+    font-size: 300%; } }
+
+/*# sourceMappingURL=style.css.map */
