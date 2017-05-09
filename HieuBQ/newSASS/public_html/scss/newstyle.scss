@@ -1,0 +1,33 @@
+
+.col-md{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+img {
+    width: 100%;
+}
+.row{
+    margin-right: -15px;
+    margin-left: -15px;
+    &:after{
+        clear: both;
+    }
+}
+@mixin sp($width,$float){
+    width: $width;
+    float: $float;
+}
+@media (min-width: 992px){
+    .col-md{
+    @include sp(16.66666667%,left);}
+}
+@media (max-width:991px) and (min-width:887px){
+    .col-md{
+    @include sp(30%,left);}
+}
+@media (max-width:886px) and (min-width:768px){
+    .col-md{
+    @include sp(45%,left);}
+}

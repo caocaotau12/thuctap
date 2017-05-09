@@ -1,0 +1,29 @@
+.col-md {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px; }
+
+img {
+  width: 100%; }
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px; }
+  .row:after {
+    clear: both; }
+
+@media (min-width: 992px) {
+  .col-md {
+    width: 16.66667%;
+    float: left; } }
+@media (max-width: 991px) and (min-width: 887px) {
+  .col-md {
+    width: 30%;
+    float: left; } }
+@media (max-width: 886px) and (min-width: 768px) {
+  .col-md {
+    width: 45%;
+    float: left; } }
+
+/*# sourceMappingURL=newstyle.css.map */

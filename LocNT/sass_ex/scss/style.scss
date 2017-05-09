@@ -1,27 +1,48 @@
-%btn {
-    width: auto;
-    height: auto;
-    border-radius: 5px;
-    font-size: 15px;
-    padding: 5px
+.abc{
+    position: relative;
+    background-color: red;
+    min-height: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
-.default {
-    @extend %btn;
-    background: none;
-    color: black;
-    &:hover {
-        cursor: pointer;
-        background: gray;
+.container{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+$list: (
+  (1200px, lg, 1170px),
+  (992px, md, 970px),
+  (768px, sm, 750px),
+  (1px, xs, 100%)
+);
+
+@each $width, $size, $container-width in $list {
+    @media (min-width: $width) {
+        .container{
+            width: $container-width;
+        }
+    @for $i from 1 to 13 {
+        .col-#{$size}-#{$i}{
+            width: 100% / 12 * $i;
+            float: left;
+        }
+    }
+}
+}
+
+
+
+
+@each $width, $size in $list {
+    
+    @for $i from 1 to 13 {
+        .col-#{$size}-#{$i}{
+            @extend .abc;
+        }
     }
 }
 
-.primary {
-    @extend %btn;
-    background: #4d90fe;
-    color: white;
-    &:hover {
-        cursor: pointer;
-        background: blue;
-    }
-}
