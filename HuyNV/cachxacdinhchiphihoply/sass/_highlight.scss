@@ -1,0 +1,84 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 27, 2017, 3:38:04 PM
+    Author     : Phạm Ngọc Chuyển <chuyenpn at lakita.vn>
+*/
+/*
+ <div class="highlight">
+            <h2>
+                Kỹ thuật Quyết toán thuế
+            </h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="highlight-list">
+                        <div class="highlight-icon">
+                            <i class="fa fa-television" aria-hidden="true"></i>
+                        </div>
+                        <p>
+                            HỌC ONLINE
+                        </p>
+                        <p>
+                            Học trực tuyến mới mẻ, thú vị. Không giới hạn thiết bị mọi lúc, mọi nơi. Chỉ cần thiết bị có kết nối internet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>*/
+div.highlight{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    h2{
+        @include setFontHeader2;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    div.highlight-list{
+        div.highlight-icon{
+            margin:0px auto;
+            i{
+                font-size: 35px;
+                color:rgba(41,207,137,1);
+                display:block;
+                text-align: center;
+                &.fa-television{
+                    @include setIconBorder(rgba(74,73,73,1));
+                }
+                &.fa-list-ul{
+                    @include setIconBorder(rgba(74,73,73,1));
+                }
+                &.fa-users{
+                    @include setIconBorder(#13F2BD);
+                }
+                &.fa-area-diamond{
+                    @include setIconBorder(rgba(74,73,73,1));
+                }
+            }
+            margin-bottom: 40px;
+        }
+        p.highlight-name{
+            text-align: center; 
+            font-size: 16px;
+            line-height: 20px;
+            background-color: rgba(255, 255, 255, 0);
+            opacity: 1;
+            font-family: "Open Sans";
+            color: rgba(74,73,73,1);
+            font-weight: 400;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        p.highlight-content{
+            text-align: center;
+            font-size: 13px;
+            line-height: 17px;
+            background-color: rgba(255, 255, 255, 0);
+            opacity: 1;
+            font-family: "Open Sans", sans-serif;
+            color: rgba(74,73,73,1);
+        }
+    }
+}

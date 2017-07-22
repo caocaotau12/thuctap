@@ -1,0 +1,57 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 27, 2017, 11:01:58 AM
+    Author     : Phạm Ngọc Chuyển <chuyenpn at lakita.vn>
+*/
+
+//setFontHeader2
+
+/*
+<div class="missing-value row">
+                    <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
+                        <div class="col-left">
+                            <img class="img-responsive" src="img/lakita2.jpg" alt="lakita" />
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-6">
+                        <div class="col-right">
+                            <h2> Bạn sẽ bỏ lỡ điều gì nếu không tham gia khóa học này ? </h2>
+                            <p class="margin-top-20"> Tăng kỹ năng trong công việc, học tập </p>
+                            <p> Cơ hội thăng tiến và phát triển nghề nghiệp kế toán </p>
+                            <p> Học viên hiểu rõ kế toán không chỉ là báo cáo thuế mà kế toán là ngôn ngữ của kinh doanh </p>
+                            <p> Có kỹ năng phân tích BCTC để soát xét rủi ro trong kinh doanh </p>
+                            <p> Hiểu rõ về 2 sắc thuế chính TNDN và TNCN</p>
+                            <p> Được hỗ trợ thường xuyên với đội ngũ trợ giảng chuyên nghiệp </p>
+                        </div>
+                    </div>
+                </div>  
+*/
+
+div.missing-value{
+/*    background-color: #efefef;*/
+    margin-top: 55px;
+    h2{
+        @include setFontHeader2;
+    }
+    div.col-right{
+        img{
+
+        }
+    }
+    div.col-left{
+        h2{
+            @include setFontHeader2;
+            font-size: 30px;
+        }
+        p{
+            @include setFontParagraph;
+             i{
+                color:#41A85F;
+            }
+        }
+    }
+}

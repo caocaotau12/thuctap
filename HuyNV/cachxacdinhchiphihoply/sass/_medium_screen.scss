@@ -1,0 +1,37 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 27, 2017, 10:43:55 AM
+    Author     : Phạm Ngọc Chuyển <chuyenpn at lakita.vn>
+*/
+
+@media screen and (min-width: 501px) and (max-width: 768px){
+    div.do-you-know{
+        div.col-left{
+            margin-left: 8.33333333%;
+        }
+        div.col-right{
+            width: 90%;
+            margin: 25px auto;
+        }
+    }
+    div.missing-value{
+        div.col-right{
+            margin-left: 8.33333333%;
+        }
+    }
+    div.highlight{
+        div.highlight-list{
+            div.highlight-icon{
+                margin-top: 40px;
+            }
+        }
+    }
+    div.register div.container div.form-rgt {
+        margin-left: 30px;
+        width: 90%;
+    }
+}

@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 27, 2017, 4:19:24 PM
+    Author     : Phạm Ngọc Chuyển <chuyenpn at lakita.vn>
+*/
+
+
+div.camNhan{
+    
+    padding:{
+        top: 55px;
+        
+    }
+    h2{
+        position: relative;
+        @include setFontHeader2;
+        &:after{
+            content: "";
+            position: absolute;
+            border: 1px solid;
+            top: 136%;
+            width: 340px;
+            //margin-left: auto;
+           // margin-right: auto;
+            left: 0;
+            right: 0;
+            margin: auto; 
+        }
+    }
+    div.row{
+        margin-top:35px;
+    div.col-chu{
+            padding-left: 40px;
+            margin-bottom: 40px;
+            ul{
+                width:78%;
+                li.std-desc{
+                    color: white;
+                margin-top: 10px;
+                font-size: 14px;
+                line-height: 18px;
+                background-color: rgba(255, 255, 255, 0);
+                font-family: "Open Sans";
+                font-weight: 400;
+                span{
+                    color:#FF5722;
+                    margin-right: 10px;
+                }
+            }
+            }
+            
+        }
+        div.col-anh{
+            width:15%;
+/*            float:right;
+            margin-right:22px;*/
+            img{
+
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 27, 2017, 9:27:32 AM
+    Author     : Phạm Ngọc Chuyển <chuyenpn at lakita.vn>
+*/
+
+
+div.header{
+    position: relative;
+    background-image: -webkit-linear-gradient(top, rgba(41, 35, 35, 0.64), rgba(41, 35, 35, 0.64)), 
+        url('../img/header-bg.jpg');
+    div.logo{
+        width:163px;
+        height:37px;
+        display: inline-block;
+        margin-top: 30px;
+        margin-left: 100px;
+        img{
+            display: block;
+            width: 100%;
+        }
+    }
+    p.course{
+        margin-top: 60px;
+        font-size: 32px;
+        line-height: 38px;
+        font-family: "Open Sans", sans-serif;
+        color: rgb(255, 255, 255);
+        font-weight: 400;
+    }
+    h1.course_name{
+        margin-top: 20px;
+        font-size: 45px;
+        font-family: "Roboto Slab", serif;
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+    }
+    h3{
+        margin-top: 20px;
+        font-size: 24px;
+        line-height: 30px;
+        font-family: Roboto, sans-serif;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+    }
+    div.research{
+        
+        div.hr2{
+           
+            padding-top: 50px;
+        }
+        div.hr1{
+            @extend div.hr2;
+             margin-left: 22%;
+        }
+        button.join-us{
+            display: inline-block;
+            margin: 50px auto;
+            margin-bottom: 75px;
+            font-size: 18px;
+            line-height: 40px;
+            background-color: rgb(40, 168, 61);
+            font-family: "Open Sans", sans-serif;
+            color: rgb(255, 255, 255);
+            background-size: cover;
+            background-origin: content-box;
+            background-position: center top;
+            border-radius: 10px;
+            a{
+                text-decoration: none;
+                font-weight: bold;
+                padding: 0px 40px;
+                color: rgb(255, 255, 255);
+                display: block;
+                &:hover, &:visited{
+                    color: rgb(255, 255, 255);
+                }
+            }
+        }
+    }
+}

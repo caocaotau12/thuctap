@@ -1,0 +1,106 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 27, 2017, 11:19:35 AM
+    Author     : Phạm Ngọc Chuyển <chuyenpn at lakita.vn>
+*/
+
+/*
+<div class="about-teacher row">
+                    <h2 class="text-center"> Người chắp cánh đam mê </h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-left">
+                                <img class="img-responsive" src="img/thodt.png" alt="lakita" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-right">
+                                <p class="teacher-name">
+                                    Giảng viên: Đào Thị Thơ
+                                </p>
+                                <p class="teacher-desc">
+                                    Kế toán Trưởng tại công ty 100% vốn của Pháp tại Hà Nội
+                                </p>
+                                <p class="teacher-desc">
+                                     5 năm kinh nghiệm ở vị trí kế toán tổng hợp kiêm phụ trách toàn bộ mảng thuế
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+*/
+
+div.about-teacher{
+    margin:{
+        top: 55px;
+        bottom: 30px;
+    }
+    h2{
+        position: relative;
+        @include setFontHeader2;
+/*        &:after{
+            content: "";
+            position: absolute;
+            border: 2px solid #FF0000;
+            top: 136%;
+            width: 230px;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }*/
+    }
+    div.row{ 
+        margin-top:70px;
+        div.col-left{
+            width:70%;
+            float:right;
+            margin-right:22px;
+            img{
+
+            }
+            
+        }
+        div.col-md-1{
+            width: 3.3333333%;
+        }
+        div.mid{
+           
+            div.ddoc{
+                width: 1px;
+                border: 1px solid white;
+                height: 340px;
+            }
+        }
+        div.col-right{
+            padding-left: 40px;
+            margin-bottom: 40px;
+            p.teacher-name{
+                margin-top: 30px;
+                font-size: 24px;
+                line-height: 28px;
+                background-color: rgba(255, 255, 255, 0);
+                font-family: "Open Sans";
+                font-weight: 300;
+            }
+            
+            ul li.teacher-desc{
+                margin-top: 20px;
+                font-size: 14px;
+                line-height: 18px;
+                background-color: rgba(255, 255, 255, 0);
+                font-family: "Open Sans";
+                font-weight: 400;
+                span{
+                    color:#FF5722;
+                    margin-right: 10px;
+                }
+            }
+            
+        }
+    }
+}

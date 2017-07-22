@@ -8,7 +8,7 @@
 		.container {
 			width: 1000px;
 			margin: auto;
-			background: $eee;
+			background: #eee;
 		}
 	</style>
 </head>

@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 27, 2017, 9:24:12 AM
+    Author     : Phạm Ngọc Chuyển <chuyenpn at lakita.vn>
+*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700');
+@import "_reset.scss";
+@import "_variable.scss";
+@import "_mixin.scss";
+@import "_01_header.scss";
+@import "_02_section_2.scss";
+@import "_missing_value.scss";
+@import "_about_teacher.scss";
+@import "_outline.scss";
+@import "_highlight.scss";
+@import "_testimonial.scss";
+@import "_register.scss";
+@import "_large_screen.scss";
+@import "_medium_screen.scss";
+@import "_small_screen.scss";
+@import "_define.scss";
+@import "_other.scss";
+body{
+    font-family: roboto,"Open Sans",sans-serif!important;
+    overflow-x: hidden
+}
+div.container-fluid{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+@include setScrollColor;

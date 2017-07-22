@@ -1,0 +1,84 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 27, 2017, 9:59:37 AM
+    Author     : Phạm Ngọc Chuyển <chuyenpn at lakita.vn>
+*/
+@media screen and (max-width: 500px) {
+    div.flex{
+        display: block;
+    }
+    div.header{
+        background: none;
+        position: relative;
+        @include setBgOpacity('../img/header-bg.jpg', 0.4);
+        h1{
+            font-size: 40px;
+            line-height: 50px;
+            &.course{
+                margin-top: 60px;
+            }
+        }
+        button.join-us{
+            margin: 30px auto;
+            width: 300.75px;
+            height: 55.9896px;
+            font-size: 25px;
+        }
+    }
+
+    div.do-you-know{
+        div.col-right{
+            width: 90%;
+            margin: 25px auto;
+        }
+    }
+
+    div.about-teacher{
+        h2{
+            font-size:22px;
+            &:after{
+                border: 1px solid #FF0000;
+
+            }
+        }
+        div.row{
+            div.col-left{
+                float:none;
+                margin: 0px auto;
+            }
+            div.col-right{
+                p.teacher-name{
+                    text-align: center;
+                }
+                p.teacher-desc{
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+    div.outline{
+        div.chapter-outline{
+            p.chapter-name{
+                padding: 5px 10px;
+                font-size: 18px;
+            }
+            p.lesson{
+                padding: 10px;
+            }
+        }
+    }
+    div.highlight{
+        div.highlight-list{
+            div.highlight-icon{
+                margin-top: 40px;
+            }
+        }
+    }
+    div.register div.container ul li{
+        margin-right: 12px;
+    }
+}
