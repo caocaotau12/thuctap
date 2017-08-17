@@ -186,7 +186,7 @@ Các bài giảng được thiết kế theo dạng cầm tay chỉ việc, chú
 					<div class="part">
 						<p class="name fontSFt"><i class="fa fa-circle" aria-hidden="true"></i><span>CHƯƠNG 1</span></p>
 						<p class="title-part fontSFt">Tổng Quan Về Kế Toán Thuế</p>
-						<p class="pre-content">Giới thiệu và đề cương khóa học " Trọn bộ A_Z  kế toán thuế cho người bắt đầu ".</p>
+						<p class="pre-content">Giới thiệu và đề cương khóa học " Trọn bộ A_Z  kế toán thuế cho người bắt đầu ". <span class="hid-add">The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</span></p>
 						<p class="click-show">
 							<span class="vie">Xem chi tiết<i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
 							<span class="hid">Rút gọn<i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
@@ -204,7 +204,7 @@ Các bài giảng được thiết kế theo dạng cầm tay chỉ việc, chú
 					<div class="part">
 						<p class="name fontSFt"><i class="fa fa-circle" aria-hidden="true"></i><span>CHƯƠNG 2</span></p>
 						<p class="title-part fontSFt">Đăng Ký Thuế Cho Doanh Nghiệp Mới Thành Lập</p>
-						<p class="pre-content">07 thủ tục  cần làm cho DN mới thành lập.</p>
+						<p class="pre-content">07 thủ tục  cần làm cho DN mới thành lập. <span class="hid-add">The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</span></p>
 						<p class="click-show">
 							<span class="vie">Xem chi tiết<i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
 							<span class="hid">Rút gọn<i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
@@ -222,7 +222,7 @@ Các bài giảng được thiết kế theo dạng cầm tay chỉ việc, chú
 					<div class="part">
 						<p class="name fontSFt"><i class="fa fa-circle" aria-hidden="true"></i><span>CHƯƠNG 3</span></p>
 						<p class="title-part fontSFt">Thuế Giá Trị Gia Tăng</p>
-						<p class="pre-content">Giới thiệu nội dung thuế GTGT . 02 phương pháp tính thuế GTGT. Xác định kỳ kê khai thuế GTGT.</p>
+						<p class="pre-content">Giới thiệu nội dung thuế GTGT . 02 phương pháp tính thuế GTGT. Xác định kỳ kê khai thuế GTGT. <span class="hid-add">The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</span></p>
 						<p class="click-show">
 							<span class="vie">Xem chi tiết<i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
 							<span class="hid">Rút gọn<i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
@@ -240,7 +240,7 @@ Các bài giảng được thiết kế theo dạng cầm tay chỉ việc, chú
 					<div class="part">
 						<p class="name fontSFt"><i class="fa fa-circle" aria-hidden="true"></i><span>CHƯƠNG 4</span></p>
 						<p class="title-part fontSFt">Kê Khai Thuế Thu Nhập Cá Nhân</p>
-						<p class="pre-content">Trách nhiệm Doanh Nghiệp trong kê khai và nộp thuê Thu nhập cá nhân. Phân Loại đối tượng chịu thuế.</p>
+						<p class="pre-content">Trách nhiệm Doanh Nghiệp trong kê khai và nộp thuê Thu nhập cá nhân. Phân Loại đối tượng chịu thuế. <span class="hid-add">The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</span></p>
 						<p class="click-show">
 							<span class="vie">Xem chi tiết<i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
 							<span class="hid">Rút gọn<i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
@@ -258,7 +258,7 @@ Các bài giảng được thiết kế theo dạng cầm tay chỉ việc, chú
 					<div class="part">
 						<p class="name fontSFt"><i class="fa fa-circle" aria-hidden="true"></i><span>CHƯƠNG 5</span></p>
 						<p class="title-part fontSFt">Quyết Toán Thuế Thu Nhập Cá Nhân</p>
-						<p class="pre-content">Quyết toán thuế TNCN là gì? Tại sao phải làm quyết toán. Các trường hợp không đủ điều kiện ủy quyền quyết toán.</p>
+						<p class="pre-content">Quyết toán thuế TNCN là gì? Tại sao phải làm quyết toán. Các trường hợp không đủ điều kiện ủy quyền quyết toán. <span class="hid-add">The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</span></p>
 						<p class="click-show">
 							<span class="vie">Xem chi tiết<i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
 							<span class="hid">Rút gọn<i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
@@ -276,7 +276,7 @@ Các bài giảng được thiết kế theo dạng cầm tay chỉ việc, chú
 					<div class="part">
 						<p class="name fontSFt"><i class="fa fa-circle" aria-hidden="true"></i><span>CHƯƠNG 6</span></p>
 						<p class="title-part fontSFt">Thuế Thu Nhập Doanh Nghiệp</p>
-						<p class="pre-content">Hồ sơ quyết toán thuế TNDN. Chi phí được trừ khi quyết toán thuế TNDN. Chi phí không được trừ khi quyết toán thuế TNDN. Chi phí không được trừ khi quyết toán thuế TNDN</p>
+						<p class="pre-content">Hồ sơ quyết toán thuế TNDN. Chi phí được trừ khi quyết toán thuế TNDN. Chi phí không được trừ khi quyết toán thuế TNDN. Chi phí không được trừ khi quyết toán thuế TNDN <span class="hid-add">The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</span></p>
 						<p class="click-show">
 							<span class="vie">Xem chi tiết<i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
 							<span class="hid">Rút gọn<i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
@@ -534,7 +534,9 @@ Các bài giảng được thiết kế theo dạng cầm tay chỉ việc, chú
 		$('.vie').click(function() {
 			$('.list-lesson').slideUp('fast');
 			$('.hid').css('display', 'none');
+			$('.hid-add').css('display', 'none');
 			$('.vie').css('display', 'block');
+			$(this).parent().parent().children('.pre-content').children('.hid-add').css('display', 'inline');
 
 			$(this).parent().parent().children('.list-lesson').slideDown('fast');
 			$(this).parent().children('.hid').css('display', 'block');
@@ -544,6 +546,7 @@ Các bài giảng được thiết kế theo dạng cầm tay chỉ việc, chú
 		$('.hid').click(function() {
 			$('.list-lesson').slideUp('fast');
 
+			$(this).parent().parent().children('.pre-content').children('.hid-add').css('display', 'none');
 			$(this).parent().children('.vie').css('display', 'block');
 			$(this).css('display', 'none');
 		});

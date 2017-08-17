@@ -416,7 +416,7 @@
     <div class="section-inner">
         <h2 class="section-title text-center">ĐĂNG KÝ THAM DỰ</h2>
         <div class="form container-fluid" style="padding: 0;">
-    <form action="http://wakeup.vn/wu2017/dangky" id="frm" class="form-inline" method="post" accept-charset="utf-8">
+    <form action="" id="frm" class="form-inline" method="post" accept-charset="utf-8">
     <a name="dangky"></a>
     <div id="msbox">        
     </div>

@@ -600,7 +600,7 @@ p#price-c {
 }
 
 .title-part {
-	font-size: 47px;
+	font-size: 32px;
 	color: #525c65;
 }
 
@@ -631,13 +631,17 @@ p#price-c {
 	display: none;
 }
 
-.hid {
+.hid, .hid-add {
 	display: none;
 }
 
 .dark {
 	text-align: center;
 	margin: 30px 0;
+}
+
+.dark img {
+	margin: auto;
 }
 
 .area {
@@ -649,6 +653,10 @@ p#price-c {
 
 .area img {
 	margin-top: -20px;
+}
+
+.lineout {
+	padding-top: 2%;
 }
 
 footer {
@@ -746,6 +754,10 @@ li {
 
 	.area {
 		height: 285px;
+	}
+
+	.title-part {
+		font-size: 47px;
 	}
 }
 
